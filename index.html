@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Smart Design Business Operations | Executive Operational Visibility</title>
+<meta name="description" content="Smart Design Business Operations designs premium business operations platforms that simplify workflows, improve reporting, strengthen compliance, and give leadership teams complete operational visibility.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ======================================================================
+   SMART DESIGN BUSINESS OPERATIONS — FLAGSHIP WEBSITE
+   Design System / Shared Stylesheet
+====================================================================== */
+
+:root{
+  /* ---- Colour tokens ---- */
+  --exec-blue:        #0B3D66;
+  --exec-blue-dark:   #082A47;
+  --exec-blue-light:  #E8F0F7;
+  --teal:             #0E7C7B;
+  --teal-light:       #E4F5F4;
+  --cyan:             #17A6C7;
+  --cyan-light:       #E5F7FB;
+
+  --white:            #FFFFFF;
+  --grey-50:          #F6F8FA;
+  --grey-100:         #EEF1F5;
+  --grey-200:         #DCE2E8;
+  --grey-400:         #9AA7B4;
+  --grey-600:         #5C6B7A;
+  --grey-800:         #2B3642;
+  --near-black:       #101820;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 100px;
+
+  --shadow-sm: 0 1px 3px rgba(11,61,102,0.07), 0 1px 2px rgba(11,61,102,0.05);
+  --shadow-md: 0 12px 32px rgba(11,61,102,0.10), 0 2px 8px rgba(11,61,102,0.06);
+  --shadow-lg: 0 24px 60px rgba(8,42,71,0.16);
+
+  --container: 1180px;
+  --nav-h: 78px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  color:var(--grey-800);
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+  font-size:16px;
+}
+h1,h2,h3,h4,h5{
+  font-family:'Manrope',system-ui,sans-serif;
+  color:var(--exec-blue-dark);
+  font-weight:800;
+  line-height:1.18;
+  letter-spacing:-0.015em;
+  margin:0 0 16px 0;
+}
+h1{ font-size:clamp(2.1rem, 4vw, 3.4rem); }
+h2{ font-size:clamp(1.7rem, 3vw, 2.4rem); }
+h3{ font-size:1.3rem; }
+p{ margin:0 0 16px 0; color:var(--grey-600); }
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+ul{ margin:0; padding:0; list-style:none; }
+button{ font-family:inherit; }
+
+.container{ max-width:var(--container); margin:0 auto; padding:0 28px; }
+.section{ padding:96px 0; }
+.section-tight{ padding:64px 0; }
+.section-alt{ background:var(--grey-50); }
+.section-dark{ background:linear-gradient(160deg, var(--exec-blue-dark), var(--exec-blue) 70%); color:#EAF2F8; }
+.section-dark h1, .section-dark h2, .section-dark h3{ color:#fff; }
+.section-dark p{ color:#C7DCEC; }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.09em;
+  color:var(--teal); background:var(--teal-light); padding:6px 14px; border-radius:var(--radius-pill);
+  margin-bottom:18px;
+}
+.eyebrow.on-dark{ background:rgba(255,255,255,0.12); color:#8FE3E0; }
+.eyebrow::before{ content:''; width:6px; height:6px; border-radius:50%; background:currentColor; }
+
+.lede{ font-size:1.15rem; color:var(--grey-600); max-width:680px; }
+.center{ text-align:center; margin-left:auto; margin-right:auto; }
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  padding:14px 26px; border-radius:var(--radius-pill); font-weight:700; font-size:14.5px;
+  border:1.5px solid transparent; cursor:pointer; transition:all .18s ease; white-space:nowrap;
+}
+.btn-primary{ background:var(--exec-blue); color:#fff; box-shadow:var(--shadow-sm); }
+.btn-primary:hover{ background:var(--exec-blue-dark); box-shadow:var(--shadow-md); transform:translateY(-1px); }
+.btn-secondary{ background:transparent; color:var(--exec-blue); border-color:var(--exec-blue); }
+.btn-secondary:hover{ background:var(--exec-blue-light); }
+.btn-cyan{ background:var(--cyan); color:#fff; }
+.btn-cyan:hover{ filter:brightness(0.92); }
+.btn-ghost-light{ background:rgba(255,255,255,0.08); color:#fff; border-color:rgba(255,255,255,0.35); }
+.btn-ghost-light:hover{ background:rgba(255,255,255,0.18); }
+.btn-sm{ padding:9px 18px; font-size:13px; }
+.btn-block{ width:100%; }
+.btn-row{ display:flex; gap:14px; flex-wrap:wrap; }
+
+/* ---------- NAVIGATION ---------- */
+.site-nav{
+  position:sticky; top:0; z-index:200; background:rgba(255,255,255,0.92);
+  backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--grey-100);
+  height:var(--nav-h);
+}
+.nav-inner{ max-width:var(--container); margin:0 auto; padding:0 28px; height:100%; display:flex; align-items:center; justify-content:space-between; }
+.brand{ display:flex; align-items:center; gap:11px; font-weight:800; color:var(--exec-blue-dark); font-size:16.5px; font-family:'Manrope',sans-serif; }
+.brand .mark{
+  width:38px; height:38px; border-radius:10px; flex-shrink:0;
+  background:linear-gradient(135deg, var(--teal), var(--exec-blue));
+  display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:14px;
+}
+.brand .name-sub{ display:block; font-size:10.5px; font-weight:600; color:var(--grey-400); letter-spacing:0.06em; text-transform:uppercase; }
+.nav-links{ display:flex; align-items:center; gap:30px; }
+.nav-links a{ font-size:14px; font-weight:600; color:var(--grey-800); padding:8px 2px; border-bottom:2px solid transparent; transition:color .15s, border-color .15s; }
+.nav-links a:hover, .nav-links a.active{ color:var(--exec-blue); border-bottom-color:var(--teal); }
+.nav-actions{ display:flex; align-items:center; gap:12px; }
+.nav-toggle{ display:none; background:none; border:none; cursor:pointer; color:var(--exec-blue-dark); }
+
+@media (max-width:960px){
+  .nav-links{
+    position:fixed; top:var(--nav-h); left:0; right:0; background:#fff; flex-direction:column; align-items:flex-start;
+    padding:20px 28px 28px; gap:6px; border-bottom:1px solid var(--grey-100); box-shadow:var(--shadow-md);
+    transform:translateY(-8px); opacity:0; pointer-events:none; transition:all .2s ease;
+  }
+  .nav-links.open{ transform:translateY(0); opacity:1; pointer-events:auto; }
+  .nav-links a{ width:100%; padding:12px 0; border-bottom:1px solid var(--grey-100); }
+  .nav-toggle{ display:flex; }
+  .nav-actions .btn-secondary{ display:none; }
+}
+
+/* ---------- HERO ---------- */
+.hero{ padding:88px 0 70px; position:relative; overflow:hidden; }
+.hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center; }
+.hero-copy h1{ margin-bottom:20px; }
+.hero-copy p.lede{ margin-bottom:32px; }
+.hero-blob{
+  position:absolute; top:-160px; right:-160px; width:520px; height:520px; border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, var(--cyan-light), transparent 70%); z-index:0;
+}
+.hero-values{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:56px; }
+.hero-value{ padding:18px; border-radius:var(--radius-md); background:var(--white); border:1px solid var(--grey-100); box-shadow:var(--shadow-sm); }
+.hero-value .vi{ width:38px; height:38px; border-radius:9px; background:var(--exec-blue-light); color:var(--exec-blue); display:flex; align-items:center; justify-content:center; margin-bottom:12px; }
+.hero-value h4{ font-size:14px; margin:0 0 4px 0; color:var(--exec-blue-dark); font-family:'Manrope',sans-serif; font-weight:800; }
+.hero-value p{ font-size:12.5px; margin:0; color:var(--grey-600); }
+
+/* ---------- DASHBOARD MOCKUP GRAPHIC ---------- */
+.dash-mock{
+  background:linear-gradient(155deg,#0E3B63,#0B2C4D); border-radius:var(--radius-lg); padding:22px;
+  box-shadow:var(--shadow-lg); position:relative; z-index:1; color:#fff;
+}
+.dash-mock-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+.dash-mock-dots{ display:flex; gap:6px; }
+.dash-mock-dots span{ width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,0.3); }
+.dash-mock-title{ font-size:12px; font-weight:700; color:rgba(255,255,255,0.75); letter-spacing:0.04em; }
+.dash-kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
+.dash-kpi{ background:rgba(255,255,255,0.07); border-radius:10px; padding:12px; }
+.dash-kpi .k-label{ font-size:9.5px; text-transform:uppercase; letter-spacing:.06em; color:rgba(255,255,255,0.55); margin-bottom:6px; }
+.dash-kpi .k-val{ font-size:17px; font-weight:800; font-family:'Manrope',sans-serif; }
+.dash-kpi .k-up{ font-size:10px; color:#7CE0C6; margin-top:3px; }
+.dash-chart{ background:rgba(255,255,255,0.07); border-radius:10px; padding:14px; margin-bottom:12px; }
+.dash-bars{ display:flex; align-items:flex-end; gap:6px; height:70px; }
+.dash-bars span{ flex:1; background:linear-gradient(180deg, var(--cyan), var(--teal)); border-radius:4px 4px 0 0; opacity:0.9; }
+.dash-rows{ display:flex; flex-direction:column; gap:8px; }
+.dash-row{ display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.06); border-radius:8px; padding:9px 12px; font-size:11.5px; }
+.dash-row .dot{ width:7px; height:7px; border-radius:50%; margin-right:8px; display:inline-block; }
+
+/* ---------- TRUST STRIP ---------- */
+.trust-strip{ padding:34px 0; border-top:1px solid var(--grey-100); border-bottom:1px solid var(--grey-100); }
+.trust-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.trust-item{ display:flex; align-items:center; gap:12px; font-size:13.5px; font-weight:600; color:var(--grey-800); }
+.trust-item .ti-icon{ width:34px; height:34px; border-radius:9px; background:var(--exec-blue-light); color:var(--exec-blue); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+
+/* ---------- CARDS / GRIDS ---------- */
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.grid-4{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+
+.card{ background:#fff; border:1px solid var(--grey-100); border-radius:var(--radius-md); box-shadow:var(--shadow-sm); transition:box-shadow .18s ease, transform .18s ease; }
+.card:hover{ box-shadow:var(--shadow-md); transform:translateY(-3px); }
+.card-pad{ padding:28px; }
+.card-icon{ width:46px; height:46px; border-radius:11px; display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
+.card-icon.blue{ background:var(--exec-blue-light); color:var(--exec-blue); }
+.card-icon.teal{ background:var(--teal-light); color:var(--teal); }
+.card-icon.cyan{ background:var(--cyan-light); color:var(--cyan); }
+.card h3{ font-size:16.5px; margin-bottom:8px; }
+.card p{ font-size:14px; margin-bottom:14px; }
+.card-link{ font-size:13.5px; font-weight:700; color:var(--exec-blue); display:inline-flex; align-items:center; gap:6px; }
+.card-link:hover{ color:var(--teal); }
+.tag-list{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.tag{ font-size:11.5px; font-weight:700; background:var(--grey-50); border:1px solid var(--grey-100); color:var(--grey-600); padding:5px 11px; border-radius:var(--radius-pill); }
+
+/* ---------- CHECK LIST ---------- */
+.check-list{ display:flex; flex-direction:column; gap:14px; }
+.check-item{ display:flex; align-items:flex-start; gap:12px; font-size:14.5px; color:var(--grey-800); font-weight:500; }
+.check-item .ci{ width:22px; height:22px; border-radius:50%; background:var(--teal-light); color:var(--teal); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+.cross-item .ci{ background:#FBEAEA; color:#B3453B; }
+
+/* ---------- INDUSTRY / SOLUTION CARDS ---------- */
+.industry-card{ padding:24px; border-radius:var(--radius-md); background:#fff; border:1px solid var(--grey-100); box-shadow:var(--shadow-sm); cursor:pointer; }
+.industry-card:hover{ box-shadow:var(--shadow-md); transform:translateY(-3px); }
+.industry-card .ii{ width:42px; height:42px; border-radius:10px; background:var(--exec-blue-light); color:var(--exec-blue); display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+
+/* ---------- TABS ---------- */
+.tabs-bar{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:32px; }
+.tab-btn{ padding:10px 18px; border-radius:var(--radius-pill); border:1.5px solid var(--grey-200); background:#fff; font-size:13.5px; font-weight:700; color:var(--grey-600); cursor:pointer; transition:all .15s; }
+.tab-btn.active, .tab-btn:hover{ border-color:var(--exec-blue); color:var(--exec-blue); background:var(--exec-blue-light); }
+.tab-panel{ display:none; }
+.tab-panel.active{ display:block; animation:fadein .25s ease; }
+@keyframes fadein{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+/* ---------- STEPS / PROCESS ---------- */
+.steps-row{ display:grid; grid-template-columns:repeat(5,1fr); gap:20px; position:relative; }
+.step{ text-align:center; padding:0 8px; }
+.step .sn{ width:44px; height:44px; border-radius:50%; background:var(--exec-blue); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-family:'Manrope',sans-serif; margin:0 auto 14px; }
+.step h4{ font-size:14.5px; margin-bottom:6px; color:var(--exec-blue-dark); font-family:'Manrope',sans-serif; }
+.step p{ font-size:12.5px; }
+
+/* ---------- STATS ---------- */
+.stats-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center; }
+.stat-num{ font-family:'Manrope',sans-serif; font-weight:800; font-size:2.2rem; color:#fff; }
+.stat-label{ font-size:12.5px; color:#B9D3E7; text-transform:uppercase; letter-spacing:0.06em; font-weight:700; margin-top:6px; }
+
+/* ---------- TESTIMONIAL / CASE STUDY ---------- */
+.case-card{ border:1px solid var(--grey-100); border-radius:var(--radius-lg); overflow:hidden; background:#fff; box-shadow:var(--shadow-sm); }
+.case-band{ height:8px; background:linear-gradient(90deg, var(--teal), var(--cyan)); }
+.case-body{ padding:30px; }
+.illustrative-badge{ display:inline-block; font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.07em; color:#9A6B00; background:#FFF3D6; padding:5px 12px; border-radius:var(--radius-pill); margin-bottom:14px; }
+
+/* ---------- ACCORDION / FAQ ---------- */
+.accordion-item{ border-bottom:1px solid var(--grey-100); }
+.accordion-q{ width:100%; display:flex; align-items:center; justify-content:space-between; padding:20px 4px; background:none; border:none; text-align:left; font-size:15px; font-weight:700; color:var(--exec-blue-dark); cursor:pointer; font-family:'Manrope',sans-serif; }
+.accordion-q .plus{ transition:transform .2s ease; flex-shrink:0; margin-left:16px; color:var(--teal); }
+.accordion-item.open .plus{ transform:rotate(45deg); }
+.accordion-a{ max-height:0; overflow:hidden; transition:max-height .25s ease; }
+.accordion-item.open .accordion-a{ max-height:400px; }
+.accordion-a-inner{ padding:0 4px 22px 4px; font-size:14.5px; color:var(--grey-600); }
+
+/* ---------- FORM ---------- */
+.form-card{ background:#fff; border:1px solid var(--grey-100); border-radius:var(--radius-lg); padding:36px; box-shadow:var(--shadow-md); }
+.form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.form-field{ display:flex; flex-direction:column; gap:7px; margin-bottom:18px; }
+.form-field.full{ grid-column:1/-1; }
+.form-field label{ font-size:12.5px; font-weight:700; color:var(--grey-800); }
+.form-field input, .form-field select, .form-field textarea{
+  padding:12px 14px; border-radius:var(--radius-sm); border:1.5px solid var(--grey-200); font-size:14px; font-family:inherit; outline:none; background:#fcfdfe;
+}
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus{ border-color:var(--exec-blue); box-shadow:0 0 0 3px var(--exec-blue-light); }
+.form-field textarea{ resize:vertical; min-height:110px; }
+.checkbox-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.checkbox-row{ display:flex; align-items:center; gap:9px; font-size:13.5px; color:var(--grey-800); }
+.checkbox-row input{ width:16px; height:16px; }
+.form-success{ display:none; text-align:center; padding:50px 20px; }
+.form-success.show{ display:block; }
+.form-success .fs-icon{ width:64px; height:64px; border-radius:50%; background:var(--teal-light); color:var(--teal); display:flex; align-items:center; justify-content:center; margin:0 auto 18px; }
+.privacy-note{ font-size:12px; color:var(--grey-400); display:flex; align-items:center; gap:7px; margin-top:6px; }
+
+/* ---------- CONTACT INFO CARDS ---------- */
+.info-card{ display:flex; gap:14px; padding:20px; border-radius:var(--radius-md); background:var(--grey-50); }
+.info-card .ic{ width:40px; height:40px; border-radius:10px; background:var(--exec-blue); color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+
+/* ---------- FOOTER ---------- */
+.site-footer{ background:var(--near-black); color:#B9C3CC; padding:70px 0 30px; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1.1fr; gap:40px; margin-bottom:50px; }
+.footer-grid h4{ color:#fff; font-size:13px; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:18px; font-family:'Manrope',sans-serif; }
+.footer-grid a{ display:block; font-size:13.5px; color:#B9C3CC; margin-bottom:11px; }
+.footer-grid a:hover{ color:#fff; }
+.footer-brand .brand{ color:#fff; margin-bottom:14px; }
+.footer-brand p{ font-size:13.5px; color:#8B97A2; max-width:280px; }
+.footer-bottom{ border-top:1px solid rgba(255,255,255,0.08); padding-top:26px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; font-size:12.5px; color:#7C8892; }
+.footer-social{ display:flex; gap:12px; }
+.footer-social a{ width:34px; height:34px; border-radius:9px; background:rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:center; }
+.footer-social a:hover{ background:rgba(255,255,255,0.14); }
+
+/* ---------- CTA BAND ---------- */
+.cta-band{ border-radius:var(--radius-lg); padding:56px; text-align:center; background:linear-gradient(135deg, var(--exec-blue-dark), var(--teal)); color:#fff; }
+.cta-band h2{ color:#fff; }
+.cta-band p{ color:#DCEFF0; max-width:600px; margin-left:auto; margin-right:auto; }
+
+/* ---------- BADGES / PILLS ---------- */
+.pill{ display:inline-block; padding:4px 12px; border-radius:var(--radius-pill); font-size:11.5px; font-weight:700; }
+.pill-blue{ background:var(--exec-blue-light); color:var(--exec-blue); }
+.pill-teal{ background:var(--teal-light); color:var(--teal); }
+
+/* ---------- PAGE HERO (secondary pages) ---------- */
+.page-hero{ padding:70px 0 60px; }
+.breadcrumb{ font-size:12.5px; color:var(--grey-400); margin-bottom:16px; font-weight:600; }
+.breadcrumb a{ color:var(--grey-400); }
+.breadcrumb a:hover{ color:var(--exec-blue); }
+
+/* ---------- UTILITIES ---------- */
+.mt-0{ margin-top:0; } .mb-0{ margin-bottom:0; }
+.text-center{ text-align:center; }
+.small{ font-size:13px; }
+.muted{ color:var(--grey-400); }
+.divider{ height:1px; background:var(--grey-100); margin:40px 0; }
+.section-head{ max-width:680px; margin:0 auto 52px; text-align:center; }
+.icon-wrap-lg{ width:56px; height:56px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1020px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .hero-values{ grid-template-columns:repeat(2,1fr); }
+  .grid-3{ grid-template-columns:repeat(2,1fr); }
+  .grid-4{ grid-template-columns:repeat(2,1fr); }
+  .trust-grid{ grid-template-columns:repeat(2,1fr); }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .stats-row{ grid-template-columns:repeat(2,1fr); gap:30px; }
+  .steps-row{ grid-template-columns:repeat(1,1fr); gap:34px; }
+  .form-grid{ grid-template-columns:1fr; }
+  .checkbox-grid{ grid-template-columns:1fr; }
+  .grid-2{ grid-template-columns:1fr; }
+}
+@media (max-width:640px){
+  .section{ padding:64px 0; }
+  .grid-3, .grid-4{ grid-template-columns:1fr; }
+  .hero-values{ grid-template-columns:1fr 1fr; }
+  .cta-band{ padding:36px 22px; }
+  .dash-kpis{ grid-template-columns:1fr 1fr; }
+}
+
+/* ---------- PRINT ---------- */
+@media print{ .site-nav, .site-footer, .cta-band{ display:none; } }
+
+
+/* ---- single-file page routing ---- */
+.page{ display:none; }
+.page.active{ display:block; animation:sdboFade .25s ease; }
+@keyframes sdboFade{ from{opacity:0;} to{opacity:1;} }
+.nav-links a.active{ color:var(--exec-blue); border-bottom-color:var(--teal); }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand" data-nav-link><span class="mark">SD</span><span>Smart Design Business Operations<span class="name-sub">Executive Operational Visibility</span></span></a>
+    <div class="nav-links">
+      <a href="#home" data-nav-link data-page="home">Home</a>
+      <a href="#about" data-nav-link data-page="about">About</a>
+      <a href="#solutions" data-nav-link data-page="solutions">Solutions</a>
+      <a href="#industries" data-nav-link data-page="industries">Industries</a>
+      <a href="#resources" data-nav-link data-page="resources">Resources</a>
+      <a href="#case-studies" data-nav-link data-page="case-studies">Case Studies</a>
+      <a href="#contact" data-nav-link data-page="contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="#contact:demo" class="btn btn-secondary btn-sm" data-nav-link>Request a Demo</a>
+      <a href="#contact" class="btn btn-primary btn-sm" data-nav-link>Book a Consultation</a>
+      <button class="nav-toggle" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</nav>
+
+
+<div class="page" id="page-home">
+
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-blob" aria-hidden="true"></div>
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <div class="eyebrow">Executive Operational Visibility</div>
+      <h1>Helping Businesses Operate Smarter Through Executive Operational Visibility</h1>
+      <p class="lede">We design premium business operations platforms that simplify workflows, improve reporting, strengthen compliance, automate everyday processes, and provide business owners with complete operational visibility.</p>
+      <div class="btn-row">
+        <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+        <a href="#solutions" class="btn btn-secondary">View Our Solutions</a>
+      </div>
+
+      <div class="hero-values">
+        <div class="hero-value">
+          <div class="vi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h4>Executive Visibility</h4>
+          <p>Real-time insight into every part of your business.</p>
+        </div>
+        <div class="hero-value">
+          <div class="vi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+          <h4>Workflow Automation</h4>
+          <p>Reduce manual processes and improve efficiency.</p>
+        </div>
+        <div class="hero-value">
+          <div class="vi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4M12 3a9 9 0 1 0 9 9"/><path d="M21 3v6h-6"/></svg></div>
+          <h4>Compliance Management</h4>
+          <p>Simplify audits, inspections, and documentation.</p>
+        </div>
+        <div class="hero-value">
+          <div class="vi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg></div>
+          <h4>Executive Reporting</h4>
+          <p>Make informed decisions using accurate data.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="dash-mock">
+        <div class="dash-mock-top">
+          <span class="dash-mock-title">EXECUTIVE OVERVIEW</span>
+          <div class="dash-mock-dots"><span></span><span></span><span></span></div>
+        </div>
+        <div class="dash-kpis">
+          <div class="dash-kpi"><div class="k-label">Revenue</div><div class="k-val">R 4.82M</div><div class="k-up">▲ 12.4%</div></div>
+          <div class="dash-kpi"><div class="k-label">Compliance</div><div class="k-val">96%</div><div class="k-up">▲ 3.1%</div></div>
+          <div class="dash-kpi"><div class="k-label">Open Tasks</div><div class="k-val">23</div><div class="k-up" style="color:#F3C77D;">▼ 5</div></div>
+        </div>
+        <div class="dash-chart">
+          <div class="dash-bars">
+            <span style="height:40%"></span><span style="height:60%"></span><span style="height:35%"></span>
+            <span style="height:80%"></span><span style="height:55%"></span><span style="height:90%"></span>
+            <span style="height:70%"></span><span style="height:100%"></span>
+          </div>
+        </div>
+        <div class="dash-rows">
+          <div class="dash-row"><span><span class="dot" style="background:#7CE0C6;"></span>Site Inspection — Block C</span><span>Complete</span></div>
+          <div class="dash-row"><span><span class="dot" style="background:#F3C77D;"></span>Compliance Renewal — Q3</span><span>Due Soon</span></div>
+          <div class="dash-row"><span><span class="dot" style="background:#8FCBEF;"></span>Staff Onboarding — 4 New</span><span>In Progress</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= TRUST STRIP ================= -->
+<section class="trust-strip">
+  <div class="container trust-grid">
+    <div class="trust-item"><span class="ti-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span> Cloud-Based Platforms</div>
+    <div class="trust-item"><span class="ti-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span> Secure &amp; Scalable</div>
+    <div class="trust-item"><span class="ti-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span> Mobile &amp; Desktop Access</div>
+    <div class="trust-item"><span class="ti-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg></span> Real-Time Dashboards</div>
+  </div>
+</section>
+
+<!-- ================= BUSINESS CHALLENGES ================= -->
+<section class="section">
+  <div class="container">
+    <div class="grid-2" style="align-items:center;">
+      <div class="reveal">
+        <div class="eyebrow">The Everyday Reality</div>
+        <h2>Running a Business Shouldn't Mean Managing Endless Spreadsheets, Paperwork, and Disconnected Systems.</h2>
+        <p class="lede">If any of this sounds familiar, you're not alone — and it's exactly what we help solve.</p>
+      </div>
+      <div class="card card-pad reveal">
+        <div class="check-list">
+          <div class="check-item cross-item"><span class="ci">✕</span> Paper-based processes that slow everything down</div>
+          <div class="check-item cross-item"><span class="ci">✕</span> Multiple disconnected spreadsheets</div>
+          <div class="check-item cross-item"><span class="ci">✕</span> Lack of operational visibility</div>
+          <div class="check-item cross-item"><span class="ci">✕</span> Manual, time-consuming reporting</div>
+          <div class="check-item cross-item"><span class="ci">✕</span> Compliance difficulties and lost documentation</div>
+          <div class="check-item cross-item"><span class="ci">✕</span> Delayed decision-making</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OUR SOLUTION ================= -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Our Solution</div>
+      <h2>One Platform. Complete Operational Visibility.</h2>
+      <p class="lede center">We bring operations, projects, health &amp; safety, compliance, staff management, reporting, documents, automation, dashboards, analytics, and mobile access together into one integrated platform.</p>
+    </div>
+    <div class="tag-list" style="justify-content:center;">
+      <span class="tag">Operations Management</span><span class="tag">Projects</span><span class="tag">Health &amp; Safety</span>
+      <span class="tag">Compliance</span><span class="tag">Staff Management</span><span class="tag">Reporting</span>
+      <span class="tag">Documents</span><span class="tag">Workflow Automation</span><span class="tag">Dashboards</span>
+      <span class="tag">Analytics</span><span class="tag">Mobile Access</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOLUTIONS OVERVIEW ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Solutions</div>
+      <h2>Reusable Platforms Built Around Real Business Problems</h2>
+      <p class="lede center">Every solution is designed to solve a genuine operational challenge — not to sell technology for its own sake.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card card-pad reveal">
+        <div class="card-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></div>
+        <h3>Business Operations Platform</h3>
+        <p>Centralised management for daily business activities, tasks, projects, staff and reporting in one place.</p>
+        <a href="#operations-platform" class="card-link">Learn more →</a>
+      </div>
+      <div class="card card-pad reveal">
+        <div class="card-icon teal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg></div>
+        <h3>Executive Dashboards</h3>
+        <p>Real-time reporting and performance visibility for leadership teams, updated as your business moves.</p>
+        <a href="#dashboards" class="card-link">Learn more →</a>
+      </div>
+      <div class="card card-pad reveal">
+        <div class="card-icon cyan"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-9-9"/></svg></div>
+        <h3>Health &amp; Safety Systems</h3>
+        <p>Compliance management, inspections, incidents, and corrective actions in a single audit-ready system.</p>
+        <a href="#health-safety-compliance" class="card-link">Learn more →</a>
+      </div>
+      <div class="card card-pad reveal">
+        <div class="card-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <h3>Workflow Automation</h3>
+        <p>Automate repetitive approvals, notifications, and reminders to improve efficiency and consistency.</p>
+        <a href="#workflow-automation" class="card-link">Learn more →</a>
+      </div>
+      <div class="card card-pad reveal">
+        <div class="card-icon teal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <h3>Document Management</h3>
+        <p>Store, organise, search and retrieve operational documents securely, with full version control.</p>
+        <a href="#document-management" class="card-link">Learn more →</a>
+      </div>
+      <div class="card card-pad reveal">
+        <div class="card-icon cyan"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1m-6 4h1m4 0h1"/></svg></div>
+        <h3>Custom Industry Solutions</h3>
+        <p>Tailored modules for construction, security, cleaning, facilities, engineering and more.</p>
+        <a href="#industries" class="card-link">Explore industries →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DASHBOARD SHOWCASE ================= -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">See It In Action</div>
+      <h2>Dashboards Built for Executive Decision-Making</h2>
+      <p class="lede center">A preview of the kind of operational visibility your leadership team gains from day one.</p>
+    </div>
+    <div class="tabs-bar" data-tabs-target="#dash-panels">
+      <button class="tab-btn active" data-tab="exec">Executive Overview</button>
+      <button class="tab-btn" data-tab="projects">Projects</button>
+      <button class="tab-btn" data-tab="safety">Health &amp; Safety</button>
+      <button class="tab-btn" data-tab="staff">Staff Management</button>
+    </div>
+    <div id="dash-panels">
+      <div class="tab-panel active" data-panel="exec">
+        <div class="grid-2" style="align-items:center;">
+          <div class="dash-mock">
+            <div class="dash-mock-top"><span class="dash-mock-title">EXECUTIVE OVERVIEW</span><div class="dash-mock-dots"><span></span><span></span><span></span></div></div>
+            <div class="dash-kpis">
+              <div class="dash-kpi"><div class="k-label">Revenue</div><div class="k-val">R 4.82M</div><div class="k-up">▲ 12.4%</div></div>
+              <div class="dash-kpi"><div class="k-label">Active Projects</div><div class="k-val">18</div><div class="k-up">▲ 2</div></div>
+              <div class="dash-kpi"><div class="k-label">Compliance</div><div class="k-val">96%</div><div class="k-up">▲ 3.1%</div></div>
+            </div>
+            <div class="dash-chart"><div class="dash-bars"><span style="height:40%"></span><span style="height:65%"></span><span style="height:50%"></span><span style="height:85%"></span><span style="height:60%"></span><span style="height:95%"></span></div></div>
+          </div>
+          <div>
+            <h3>Everything leadership needs, at a glance.</h3>
+            <p>Live KPIs, interactive charts, and executive reports pull together every operational area — so decisions are based on what's actually happening, not last month's spreadsheet.</p>
+            <div class="check-list">
+              <div class="check-item"><span class="ci">✓</span> Live KPIs across the whole business</div>
+              <div class="check-item"><span class="ci">✓</span> Interactive charts &amp; performance graphs</div>
+              <div class="check-item"><span class="ci">✓</span> Executive-ready reports, always current</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="projects">
+        <div class="grid-2" style="align-items:center;">
+          <div class="dash-mock">
+            <div class="dash-mock-top"><span class="dash-mock-title">PROJECTS</span><div class="dash-mock-dots"><span></span><span></span><span></span></div></div>
+            <div class="dash-rows">
+              <div class="dash-row"><span><span class="dot" style="background:#7CE0C6;"></span>Riverside Development</span><span>72%</span></div>
+              <div class="dash-row"><span><span class="dot" style="background:#F3C77D;"></span>Harbour Facility Upgrade</span><span>34%</span></div>
+              <div class="dash-row"><span><span class="dot" style="background:#8FCBEF;"></span>North Site Compliance Audit</span><span>91%</span></div>
+              <div class="dash-row"><span><span class="dot" style="background:#7CE0C6;"></span>Fleet Maintenance Plan</span><span>58%</span></div>
+            </div>
+          </div>
+          <div>
+            <h3>Every project, tracked in one place.</h3>
+            <p>Progress, budgets, milestones and tasks stay visible across the whole portfolio — so nothing slips through the cracks between office and site.</p>
+            <div class="check-list">
+              <div class="check-item"><span class="ci">✓</span> Real-time progress tracking</div>
+              <div class="check-item"><span class="ci">✓</span> Budgets &amp; financial summaries</div>
+              <div class="check-item"><span class="ci">✓</span> Milestones and task management</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="safety">
+        <div class="grid-2" style="align-items:center;">
+          <div class="dash-mock">
+            <div class="dash-mock-top"><span class="dash-mock-title">HEALTH &amp; SAFETY</span><div class="dash-mock-dots"><span></span><span></span><span></span></div></div>
+            <div class="dash-kpis">
+              <div class="dash-kpi"><div class="k-label">Open Incidents</div><div class="k-val">2</div></div>
+              <div class="dash-kpi"><div class="k-label">Inspections Due</div><div class="k-val">5</div></div>
+              <div class="dash-kpi"><div class="k-label">Compliance</div><div class="k-val">96%</div></div>
+            </div>
+            <div class="dash-chart"><div class="dash-bars"><span style="height:90%"></span><span style="height:88%"></span><span style="height:95%"></span><span style="height:70%"></span><span style="height:96%"></span></div></div>
+          </div>
+          <div>
+            <h3>Compliance you can prove, not just promise.</h3>
+            <p>Incidents, hazards, inspections, and corrective actions are logged, tracked, and reported automatically — audit-ready, every day.</p>
+            <div class="check-list">
+              <div class="check-item"><span class="ci">✓</span> Incident &amp; hazard reporting</div>
+              <div class="check-item"><span class="ci">✓</span> Inspection scheduling &amp; records</div>
+              <div class="check-item"><span class="ci">✓</span> Corrective action tracking</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="staff">
+        <div class="grid-2" style="align-items:center;">
+          <div class="dash-mock">
+            <div class="dash-mock-top"><span class="dash-mock-title">STAFF MANAGEMENT</span><div class="dash-mock-dots"><span></span><span></span><span></span></div></div>
+            <div class="dash-rows">
+              <div class="dash-row"><span><span class="dot" style="background:#7CE0C6;"></span>On Site</span><span>34</span></div>
+              <div class="dash-row"><span><span class="dot" style="background:#8FCBEF;"></span>Available</span><span>12</span></div>
+              <div class="dash-row"><span><span class="dot" style="background:#F3C77D;"></span>On Leave</span><span>4</span></div>
+              <div class="dash-row"><span><span class="dot" style="background:#7CE0C6;"></span>Training Scheduled</span><span>7</span></div>
+            </div>
+          </div>
+          <div>
+            <h3>Know where your people are, and what they're doing.</h3>
+            <p>Availability, allocation, and performance visibility across every team, without a single phone call.</p>
+            <div class="check-list">
+              <div class="check-item"><span class="ci">✓</span> Staff availability &amp; allocation</div>
+              <div class="check-item"><span class="ci">✓</span> Training &amp; certification records</div>
+              <div class="check-item"><span class="ci">✓</span> Performance visibility</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INDUSTRIES ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Industries We Serve</div>
+      <h2>One Platform. Configured for Your Industry.</h2>
+      <p class="lede center">The same trusted architecture, adapted to the way your industry actually works.</p>
+    </div>
+    <div class="grid-4">
+      <a href="#construction" class="industry-card reveal"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3 style="font-size:14.5px;">Construction</h3></a>
+      <a href="#engineering" class="industry-card reveal"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><h3 style="font-size:14.5px;">Engineering &amp; Maintenance</h3></a>
+      <a href="#manufacturing" class="industry-card reveal"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M4 20V10l6 4v-4l6 4V6l4-2v16"/></svg></div><h3 style="font-size:14.5px;">Manufacturing</h3></a>
+      <a href="#security" class="industry-card reveal"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 style="font-size:14.5px;">Security Services</h3></a>
+      <a href="#cleaning-facilities" class="industry-card reveal"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-9-9"/></svg></div><h3 style="font-size:14.5px;">Cleaning &amp; Facilities</h3></a>
+      <a href="#health-safety-compliance" class="industry-card reveal"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6z"/></svg></div><h3 style="font-size:14.5px;">Health, Safety &amp; Compliance</h3></a>
+      <a href="#healthcare" class="industry-card reveal"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div><h3 style="font-size:14.5px;">Healthcare</h3></a>
+      <a href="#funeral-services" class="industry-card reveal"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div><h3 style="font-size:14.5px;">Funeral Services</h3></a>
+      <a href="#logistics" class="industry-card reveal"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><h3 style="font-size:14.5px;">Logistics</h3></a>
+      <a href="#professional-services" class="industry-card reveal"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h3 style="font-size:14.5px;">Professional Services</h3></a>
+      <a href="#property-management" class="industry-card reveal"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5 12 3l9 6.5V21H3z"/><path d="M9 21v-6h6v6"/></svg></div><h3 style="font-size:14.5px;">Property Management</h3></a>
+      <a href="#maintenance-contractors" class="industry-card reveal"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 1 5.4-5.4L21 6l-3-3-3.3 3.3z"/></svg></div><h3 style="font-size:14.5px;">Maintenance Contractors</h3></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Why Choose Us</div>
+      <h2>More Than Software. A Better Way to Operate Your Business.</h2>
+      <p class="lede center">Businesses don't invest in software for the sake of technology — they invest to solve problems, improve efficiency, and gain better visibility. We partner with clients to design solutions that simplify processes, strengthen accountability, and support confident decisions.</p>
+    </div>
+    <div class="grid-4">
+      <div class="card card-pad reveal"><div class="card-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3 style="font-size:15px;">Executive Operational Visibility</h3><p style="font-size:13px;">See the health of your organisation clearly, at any time.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon teal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg></div><h3 style="font-size:15px;">Industry-Specific Platforms</h3><p style="font-size:13px;">Configured to how your industry actually operates.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon cyan"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div><h3 style="font-size:15px;">Scalable &amp; Reusable</h3><p style="font-size:13px;">Start with what you need, expand as you grow.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3 style="font-size:15px;">Workflow Automation</h3><p style="font-size:13px;">Less admin, fewer delays, more consistency.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon teal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg></div><h3 style="font-size:15px;">Integrated Reporting</h3><p style="font-size:13px;">Dashboards and reports that actually get used.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon cyan"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-9-9"/></svg></div><h3 style="font-size:15px;">Compliance &amp; Governance</h3><p style="font-size:13px;">Audit-ready records, without the admin burden.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div><h3 style="font-size:15px;">Secure Cloud-Based Systems</h3><p style="font-size:13px;">Access from anywhere, built with security in mind.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon teal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3 style="font-size:15px;">Long-Term Partnership</h3><p style="font-size:13px;">We keep improving your platform as you grow.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLIENT SUCCESS STORIES ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Client Success Stories</div>
+      <h2>Measurable Operational Improvements</h2>
+      <p class="lede center">As projects are completed, this space will feature real client results. Here's the kind of transformation we aim for.</p>
+    </div>
+    <div class="grid-3">
+      <div class="case-card reveal">
+        <div class="case-band"></div>
+        <div class="case-body">
+          <span class="illustrative-badge">Illustrative Example</span>
+          <h3>Construction Firm — Site Reporting</h3>
+          <p style="font-size:13.5px;">Replaced paper site diaries and disconnected spreadsheets with one integrated projects &amp; compliance platform.</p>
+          <div class="tag-list"><span class="tag">Faster reporting</span><span class="tag">Better compliance</span></div>
+          <a href="#case-studies" class="card-link">View case studies →</a>
+        </div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-band"></div>
+        <div class="case-body">
+          <span class="illustrative-badge">Illustrative Example</span>
+          <h3>Facilities Group — Client Reporting</h3>
+          <p style="font-size:13.5px;">Digitised job scheduling and quality inspections to improve consistency and client communication.</p>
+          <div class="tag-list"><span class="tag">Reduced paperwork</span><span class="tag">Client visibility</span></div>
+          <a href="#case-studies" class="card-link">View case studies →</a>
+        </div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-band"></div>
+        <div class="case-body">
+          <span class="illustrative-badge">Illustrative Example</span>
+          <h3>Security Provider — Incident Management</h3>
+          <p style="font-size:13.5px;">Centralised patrol reporting and incident registers, improving response time and accountability.</p>
+          <div class="tag-list"><span class="tag">Faster response</span><span class="tag">Accountability</span></div>
+          <a href="#case-studies" class="card-link">View case studies →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BUSINESS INSIGHTS PREVIEW ================= -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Business Insights</div>
+      <h2>Insights That Help Businesses Operate Smarter</h2>
+    </div>
+    <div class="grid-4">
+      <a href="#resources" class="card card-pad reveal"><span class="pill pill-teal" style="margin-bottom:12px; display:inline-block;">Business Operations</span><h3 style="font-size:14.5px;">Improving Operational Efficiency</h3></a>
+      <a href="#resources" class="card card-pad reveal"><span class="pill pill-blue" style="margin-bottom:12px; display:inline-block;">Executive Reporting</span><h3 style="font-size:14.5px;">Building Executive Dashboards That Matter</h3></a>
+      <a href="#resources" class="card card-pad reveal"><span class="pill pill-teal" style="margin-bottom:12px; display:inline-block;">Compliance</span><h3 style="font-size:14.5px;">Preparing for Compliance Audits</h3></a>
+      <a href="#resources" class="card card-pad reveal"><span class="pill pill-blue" style="margin-bottom:12px; display:inline-block;">Automation</span><h3 style="font-size:14.5px;">Workflow Automation Best Practices</h3></a>
+    </div>
+    <div class="text-center" style="margin-top:36px;"><a href="#resources" class="btn btn-secondary">Visit the Knowledge Centre</a></div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="section">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Ready to Improve the Way Your Business Operates?</h2>
+      <p>Whether you need greater operational visibility, better reporting, streamlined workflows, or an industry-specific management platform, we can help you design a solution that fits your business.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a href="#contact" class="btn btn-cyan">Book a Consultation</a>
+        <a href="#contact:demo" class="btn btn-ghost-light">Request a Live Demonstration</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+</div>
+
+<div class="page" id="page-about">
+
+
+<header class="page-hero section-alt">
+  <div class="container">
+    <div class="breadcrumb"><a href="#home">Home</a> / About</div>
+    <div class="grid-2" style="align-items:center;">
+      <div class="reveal">
+        <div class="eyebrow">About Smart Design Business Operations</div>
+        <h1>Helping Businesses Build Better Operations</h1>
+        <p class="lede">We partner with organisations to simplify complex processes, improve operational visibility, strengthen compliance, and deliver practical digital solutions that create measurable business value.</p>
+        <div class="btn-row"><a href="#contact" class="btn btn-primary">Book a Consultation</a></div>
+      </div>
+      <div class="dash-mock reveal">
+        <div class="dash-mock-top"><span class="dash-mock-title">OUR PHILOSOPHY</span><div class="dash-mock-dots"><span></span><span></span><span></span></div></div>
+        <div class="dash-rows">
+          <div class="dash-row"><span><span class="dot" style="background:#7CE0C6;"></span>Understand</span><span>Step 1</span></div>
+          <div class="dash-row"><span><span class="dot" style="background:#8FCBEF;"></span>Analyse</span><span>Step 2</span></div>
+          <div class="dash-row"><span><span class="dot" style="background:#F3C77D;"></span>Design</span><span>Step 3</span></div>
+          <div class="dash-row"><span><span class="dot" style="background:#7CE0C6;"></span>Implement</span><span>Step 4</span></div>
+          <div class="dash-row"><span><span class="dot" style="background:#8FCBEF;"></span>Improve</span><span>Step 5</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- OUR STORY -->
+<section class="section">
+  <div class="container grid-2" style="align-items:center;">
+    <div class="reveal">
+      <div class="eyebrow">Our Story</div>
+      <h2>Why We Exist</h2>
+      <p>Many organisations rely on disconnected spreadsheets, paper records, manual processes, and fragmented reporting. These methods consume valuable time, reduce visibility, and make informed decision-making more difficult.</p>
+      <p>Smart Design Business Operations was established to help businesses overcome these challenges by designing integrated operational platforms that simplify daily activities, centralise information, improve accountability, and provide management teams with meaningful operational insight.</p>
+      <p><strong>The emphasis always remains on solving business problems — not selling software.</strong></p>
+    </div>
+    <div class="grid-2" style="gap:20px;">
+      <div class="card card-pad reveal">
+        <div class="card-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 style="font-size:15px;">Our Vision</h3>
+        <p style="font-size:13.5px;">To become the trusted partner for organisations seeking to improve operational performance through intelligent business operations platforms and Executive Operational Visibility.</p>
+      </div>
+      <div class="card card-pad reveal">
+        <div class="card-icon teal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <h3 style="font-size:15px;">Our Mission</h3>
+        <p style="font-size:13.5px;">To design, implement, and continually improve premium business operations platforms that help organisations streamline workflows, improve reporting, and make confident decisions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXECUTIVE OPERATIONAL VISIBILITY -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="grid-2" style="align-items:center;">
+      <div class="reveal">
+        <div class="eyebrow on-dark">The Core Idea</div>
+        <h2>What Is Executive Operational Visibility?</h2>
+        <p>Executive Operational Visibility is the ability for business owners and management teams to understand the health of their organisation through timely, accurate, and meaningful operational information.</p>
+        <p>Rather than searching through multiple systems, spreadsheets, or paper records, leaders gain access to integrated dashboards, reports, and workflows that support faster decisions, stronger accountability, and continuous improvement.</p>
+      </div>
+      <div class="stats-row reveal">
+        <div><div class="stat-num" data-count="100" data-suffix="%">0%</div><div class="stat-label">Focused On Outcomes</div></div>
+        <div><div class="stat-num" data-count="1">0</div><div class="stat-label">Integrated Platform</div></div>
+        <div><div class="stat-num" data-count="12" data-suffix="+">0+</div><div class="stat-label">Industries Adaptable</div></div>
+        <div><div class="stat-num" data-count="5">0</div><div class="stat-label">Step Methodology</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Our Core Values</div>
+      <h2>What Guides Our Work</h2>
+    </div>
+    <div class="grid-4">
+      <div class="card card-pad reveal"><div class="card-icon blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-9-9"/></svg></div><h3 style="font-size:14.5px;">Integrity</h3><p style="font-size:12.5px;">We do what's right for the client, not what's easiest for us.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon teal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div><h3 style="font-size:14.5px;">Professionalism</h3><p style="font-size:12.5px;">Executive-level standards in every interaction.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon cyan"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/></svg></div><h3 style="font-size:14.5px;">Simplicity</h3><p style="font-size:12.5px;">Clear systems, without unnecessary complexity.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3 style="font-size:14.5px;">Innovation</h3><p style="font-size:12.5px;">Modern tools applied to real operational problems.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon teal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3 style="font-size:14.5px;">Accountability</h3><p style="font-size:12.5px;">We own outcomes, not just deliverables.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon cyan"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg></div><h3 style="font-size:14.5px;">Continuous Improvement</h3><p style="font-size:12.5px;">Every platform keeps getting better as you grow.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></div><h3 style="font-size:14.5px;">Client Partnership</h3><p style="font-size:12.5px;">Long-term relationships, not one-off projects.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon teal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6z"/></svg></div><h3 style="font-size:14.5px;">Operational Excellence</h3><p style="font-size:12.5px;">The standard we hold ourselves to, always.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR APPROACH -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Our Approach</div>
+      <h2>A Simple, Repeatable Methodology</h2>
+    </div>
+    <div class="steps-row">
+      <div class="step reveal"><div class="sn">1</div><h4>Understand</h4><p>Learn how the client's business currently operates.</p></div>
+      <div class="step reveal"><div class="sn">2</div><h4>Analyse</h4><p>Identify inefficiencies, risks, and opportunities.</p></div>
+      <div class="step reveal"><div class="sn">3</div><h4>Design</h4><p>Develop a tailored solution using reusable components.</p></div>
+      <div class="step reveal"><div class="sn">4</div><h4>Implement</h4><p>Deploy with minimal disruption to daily operations.</p></div>
+      <div class="step reveal"><div class="sn">5</div><h4>Improve</h4><p>Monitor results and continuously enhance the platform.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BUSINESSES CHOOSE US -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Why Businesses Choose Us</div>
+      <h2>Why Businesses Choose Smart Design Business Operations</h2>
+      <p class="lede center">Organisations need more than software — they need operational clarity, practical solutions, and a trusted partner committed to continuous improvement.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card card-pad reveal"><h3>Executive Operational Visibility</h3><p>Meaningful operational insight through integrated dashboards, reports, and performance indicators.</p></div>
+      <div class="card card-pad reveal"><h3>Business-First Thinking</h3><p>Every solution begins with understanding your business processes before recommending technology.</p></div>
+      <div class="card card-pad reveal"><h3>Industry-Focused Solutions</h3><p>Reusable modules adapted to the unique requirements of your industry.</p></div>
+      <div class="card card-pad reveal"><h3>Long-Term Partnership</h3><p>Ongoing refinement, enhancement, training, and continuous improvement beyond go-live.</p></div>
+      <div class="card card-pad reveal"><h3>Premium User Experience</h3><p>Intuitive, elegant systems that still deliver enterprise-quality functionality.</p></div>
+      <div class="card card-pad reveal"><h3>Scalable Platforms</h3><p>Start with essential functionality and expand as your operational requirements evolve.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET THE TEAM -->
+<section class="section section-alt">
+  <div class="container text-center">
+    <div class="section-head reveal">
+      <div class="eyebrow">Meet The Team</div>
+      <h2>Experienced Professionals, Focused on Outcomes</h2>
+      <p class="lede center">We remain intentionally boutique. When you work with us, you work directly with people focused on understanding your operational challenges, designing practical solutions, supporting implementation, and delivering measurable improvements — building a relationship, not just handing over software.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container" style="max-width:800px;">
+    <div class="section-head reveal">
+      <div class="eyebrow">FAQ</div>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div>
+      <div class="accordion-item open">
+        <button class="accordion-q">What types of businesses do you work with?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">The platform is suitable for organisations across multiple industries and can be adapted to specific operational requirements.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-q">Do you customise every solution?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">We combine reusable platform modules with client-specific configuration to deliver efficient, cost-effective implementations.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-q">Can existing processes be integrated?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">Yes. Existing workflows are reviewed and, where appropriate, incorporated into the new operational platform.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-q">Do you provide ongoing support?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">Yes. We provide continuous support, guidance, and platform improvements after implementation.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-q">Is the platform scalable?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">Yes. Organisations can begin with core modules and expand functionality as their business grows.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Let's Improve the Way Your Business Operates</h2>
+      <p>Whether your organisation is looking to streamline workflows, improve reporting, strengthen compliance, or gain Executive Operational Visibility, we're ready to help you design a solution that supports your long-term goals.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a href="#contact" class="btn btn-cyan">Book a Consultation</a>
+        <a href="#contact:demo" class="btn btn-ghost-light">Request a Live Demonstration</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div>
+
+<div class="page" id="page-solutions">
+
+
+<header class="page-hero section-alt">
+  <div class="container">
+    <div class="breadcrumb"><a href="#home">Home</a> / Solutions</div>
+    <div class="grid-2" style="align-items:center;">
+      <div class="reveal">
+        <div class="eyebrow">Solutions</div>
+        <h1>Business Operations Solutions That Help Organisations Work Smarter</h1>
+        <p class="lede">Our solutions are designed to simplify operations, improve visibility, automate workflows, strengthen compliance, and provide decision-makers with the operational insight they need to lead confidently.</p>
+        <div class="btn-row">
+          <a href="#contact:demo" class="btn btn-primary">Request a Demonstration</a>
+          <a href="#contact" class="btn btn-secondary">Book a Consultation</a>
+        </div>
+      </div>
+      <div class="dash-mock reveal">
+        <div class="dash-mock-top"><span class="dash-mock-title">SOLUTION SUITE</span><div class="dash-mock-dots"><span></span><span></span><span></span></div></div>
+        <div class="dash-kpis">
+          <div class="dash-kpi"><div class="k-label">Modules Live</div><div class="k-val">8</div></div>
+          <div class="dash-kpi"><div class="k-label">Automations</div><div class="k-val">24</div></div>
+          <div class="dash-kpi"><div class="k-label">Uptime</div><div class="k-val">99.9%</div></div>
+        </div>
+        <div class="dash-chart"><div class="dash-bars"><span style="height:55%"></span><span style="height:80%"></span><span style="height:65%"></span><span style="height:90%"></span><span style="height:70%"></span></div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PHILOSOPHY -->
+<section class="section">
+  <div class="container text-center">
+    <div class="section-head reveal">
+      <div class="eyebrow">Our Philosophy</div>
+      <h2>One Platform. Multiple Operational Solutions.</h2>
+      <p class="lede center">Every organisation shares common operational needs — managing people, tracking work, maintaining compliance, reporting performance, managing documents, monitoring projects, recording incidents, scheduling tasks, and measuring performance. Rather than building separate systems for every requirement, we provide one reusable operational platform, configured to suit each client's business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CORE SOLUTIONS TABS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Core Solutions</div>
+      <h2>Explore Each Solution</h2>
+    </div>
+    <div class="tabs-bar" data-tabs-target="#sol-panels">
+      <button class="tab-btn active" data-tab="ops">Operations Platform</button>
+      <button class="tab-btn" data-tab="dash">Dashboard Suite</button>
+      <button class="tab-btn" data-tab="auto">Workflow Automation</button>
+      <button class="tab-btn" data-tab="docs">Document Management</button>
+    </div>
+    <div id="sol-panels">
+      <div class="tab-panel active" data-panel="ops" id="operations-platform">
+        <div class="grid-2" style="align-items:flex-start;">
+          <div>
+            <h3>Business Operations Platform</h3>
+            <p>The central operational management system that integrates business activities into a single platform.</p>
+            <h4 style="font-size:14px; color:var(--exec-blue-dark);">Key Capabilities</h4>
+            <div class="tag-list"><span class="tag">Daily Operations</span><span class="tag">Task Management</span><span class="tag">Project Tracking</span><span class="tag">Staff Coordination</span><span class="tag">Executive Dashboards</span><span class="tag">Workflow Management</span><span class="tag">Document Control</span></div>
+          </div>
+          <div class="card card-pad">
+            <h4 style="font-size:14px; color:var(--exec-blue-dark);">Business Outcomes</h4>
+            <div class="check-list">
+              <div class="check-item"><span class="ci">✓</span> Improved operational visibility</div>
+              <div class="check-item"><span class="ci">✓</span> Reduced manual administration</div>
+              <div class="check-item"><span class="ci">✓</span> Faster decision-making</div>
+              <div class="check-item"><span class="ci">✓</span> Better accountability</div>
+              <div class="check-item"><span class="ci">✓</span> More consistent business processes</div>
+            </div>
+            <a href="#contact:demo" class="btn btn-primary btn-sm" style="margin-top:16px;">Request Demo</a>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="dash" id="dashboards">
+        <div class="grid-2" style="align-items:flex-start;">
+          <div>
+            <h3>Executive Dashboard Suite</h3>
+            <p>Provide leadership teams with meaningful operational insight across every part of the business.</p>
+            <h4 style="font-size:14px; color:var(--exec-blue-dark);">Dashboard Categories</h4>
+            <div class="tag-list"><span class="tag">Executive Overview</span><span class="tag">Financial Performance</span><span class="tag">Operational Performance</span><span class="tag">Projects</span><span class="tag">Compliance</span><span class="tag">Staff Performance</span><span class="tag">Health &amp; Safety</span><span class="tag">Risk Management</span><span class="tag">KPI Monitoring</span></div>
+          </div>
+          <div class="card card-pad">
+            <h4 style="font-size:14px; color:var(--exec-blue-dark);">Benefits</h4>
+            <div class="check-list">
+              <div class="check-item"><span class="ci">✓</span> Real-time information</div>
+              <div class="check-item"><span class="ci">✓</span> Faster executive reporting</div>
+              <div class="check-item"><span class="ci">✓</span> Better strategic planning</div>
+              <div class="check-item"><span class="ci">✓</span> Improved operational control</div>
+            </div>
+            <a href="#contact:demo" class="btn btn-primary btn-sm" style="margin-top:16px;">Request Demo</a>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="auto" id="workflow-automation">
+        <div class="grid-2" style="align-items:flex-start;">
+          <div>
+            <h3>Workflow Automation</h3>
+            <p>Replace repetitive manual activities with automated digital workflows.</p>
+            <h4 style="font-size:14px; color:var(--exec-blue-dark);">Examples</h4>
+            <div class="tag-list"><span class="tag">Approval Processes</span><span class="tag">Incident Notifications</span><span class="tag">Task Assignments</span><span class="tag">Inspection Scheduling</span><span class="tag">Compliance Reminders</span><span class="tag">Escalation Procedures</span><span class="tag">Report Generation</span></div>
+          </div>
+          <div class="card card-pad">
+            <h4 style="font-size:14px; color:var(--exec-blue-dark);">Business Impact</h4>
+            <div class="check-list">
+              <div class="check-item"><span class="ci">✓</span> Reduced delays</div>
+              <div class="check-item"><span class="ci">✓</span> Improved consistency</div>
+              <div class="check-item"><span class="ci">✓</span> Increased operational efficiency</div>
+            </div>
+            <a href="#contact:demo" class="btn btn-primary btn-sm" style="margin-top:16px;">Request Demo</a>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="docs" id="document-management">
+        <div class="grid-2" style="align-items:flex-start;">
+          <div>
+            <h3>Document &amp; Records Management</h3>
+            <p>A central repository for operational information, supporting governance and knowledge management.</p>
+            <h4 style="font-size:14px; color:var(--exec-blue-dark);">Capabilities</h4>
+            <div class="tag-list"><span class="tag">Secure Storage</span><span class="tag">Version Control</span><span class="tag">Search</span><span class="tag">Permission-Based Access</span><span class="tag">Digital Forms</span><span class="tag">Policy Management</span><span class="tag">Audit Records</span></div>
+          </div>
+          <div class="card card-pad">
+            <h4 style="font-size:14px; color:var(--exec-blue-dark);">Why It Matters</h4>
+            <div class="check-list">
+              <div class="check-item"><span class="ci">✓</span> Supports governance &amp; compliance</div>
+              <div class="check-item"><span class="ci">✓</span> Central organisational knowledge</div>
+              <div class="check-item"><span class="ci">✓</span> Nothing gets lost or misplaced</div>
+            </div>
+            <a href="#contact:demo" class="btn btn-primary btn-sm" style="margin-top:16px;">Request Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM INDUSTRY SOLUTIONS -->
+<section class="section">
+  <div class="container text-center">
+    <div class="section-head reveal">
+      <div class="eyebrow">Custom Industry Solutions</div>
+      <h2>Tailored Modules for Your Industry</h2>
+      <p class="lede center">Construction, security, cleaning, facilities management, engineering, funeral services, and more — the same trusted platform, configured to your operational reality.</p>
+      <a href="#industries" class="btn btn-secondary" style="margin-top:10px;">Explore Industries</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>See the Platform in Action</h2>
+      <p>Request a live demonstration and we'll walk you through the modules most relevant to your business.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a href="#contact:demo" class="btn btn-cyan">Request a Live Demonstration</a>
+        <a href="#contact" class="btn btn-ghost-light">Book a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div>
+
+<div class="page" id="page-industries">
+
+
+<header class="page-hero section-alt">
+  <div class="container text-center">
+    <div class="breadcrumb" style="text-align:left;"><a href="#home">Home</a> / Industries</div>
+    <div class="reveal">
+      <div class="eyebrow">Industries</div>
+      <h1 class="center" style="max-width:820px;">One Platform. Configured for Your Industry.</h1>
+      <p class="lede center">The same reusable, high-quality architecture — adapted to the operational reality of your sector, so implementation risk stays low and results stay consistent.</p>
+    </div>
+  </div>
+</header>
+
+<!-- QUICK JUMP -->
+<section class="section-tight">
+  <div class="container">
+    <div class="tag-list" style="justify-content:center;">
+      <a href="#construction" class="tag">Construction</a>
+      <a href="#health-safety-compliance" class="tag">Health, Safety &amp; Compliance</a>
+      <a href="#security" class="tag">Security Services</a>
+      <a href="#cleaning-facilities" class="tag">Cleaning &amp; Facilities</a>
+      <a href="#engineering" class="tag">Engineering &amp; Maintenance</a>
+      <a href="#more-industries" class="tag">More Industries</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONSTRUCTION -->
+<section class="section" id="construction">
+  <div class="container grid-2" style="align-items:flex-start;">
+    <div class="reveal">
+      <div class="eyebrow">Construction</div>
+      <h2>Built for Site-to-Office Visibility</h2>
+      <p>From project coordination to daily site reporting, our platform keeps site teams and management working from the same information.</p>
+      <h4 style="font-size:14px; color:var(--exec-blue-dark);">Typical Challenges</h4>
+      <div class="tag-list"><span class="tag">Project Coordination</span><span class="tag">Site Inspections</span><span class="tag">Contractor Management</span><span class="tag">Equipment Tracking</span><span class="tag">Safety Compliance</span><span class="tag">Quality Control</span></div>
+      <h4 style="font-size:14px; color:var(--exec-blue-dark); margin-top:20px;">Recommended Modules</h4>
+      <div class="tag-list"><span class="tag">Projects</span><span class="tag">Tasks</span><span class="tag">Health &amp; Safety</span><span class="tag">Compliance</span><span class="tag">Site Inspections</span><span class="tag">Document Control</span><span class="tag">Equipment Register</span><span class="tag">Executive Dashboard</span></div>
+    </div>
+    <div class="card card-pad reveal">
+      <h4 style="font-size:14px; color:var(--exec-blue-dark);">Expected Outcomes</h4>
+      <div class="check-list">
+        <div class="check-item"><span class="ci">✓</span> Improved project visibility</div>
+        <div class="check-item"><span class="ci">✓</span> Faster reporting</div>
+        <div class="check-item"><span class="ci">✓</span> Better compliance</div>
+        <div class="check-item"><span class="ci">✓</span> Reduced paperwork</div>
+        <div class="check-item"><span class="ci">✓</span> Stronger accountability</div>
+        <div class="check-item"><span class="ci">✓</span> Improved office-to-site communication</div>
+      </div>
+      <a href="#contact:demo" class="btn btn-primary btn-sm" style="margin-top:16px;">Request an Industry Demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- HEALTH SAFETY COMPLIANCE -->
+<section class="section section-alt" id="health-safety-compliance">
+  <div class="container grid-2" style="align-items:flex-start;">
+    <div class="card card-pad reveal" style="order:2;">
+      <h4 style="font-size:14px; color:var(--exec-blue-dark);">Business Outcomes</h4>
+      <div class="check-list">
+        <div class="check-item"><span class="ci">✓</span> Improved legal compliance</div>
+        <div class="check-item"><span class="ci">✓</span> Better audit readiness</div>
+        <div class="check-item"><span class="ci">✓</span> Faster incident reporting</div>
+        <div class="check-item"><span class="ci">✓</span> Reduced administrative effort</div>
+        <div class="check-item"><span class="ci">✓</span> Increased safety visibility</div>
+      </div>
+      <a href="#contact:demo" class="btn btn-primary btn-sm" style="margin-top:16px;">Request an Industry Demo</a>
+    </div>
+    <div class="reveal" style="order:1;">
+      <div class="eyebrow">Health, Safety &amp; Compliance</div>
+      <h2>A Trusted Partner in Operational Compliance</h2>
+      <p>This is one of our most established solution areas — a complete Health, Safety &amp; Compliance Operations Platform, not just a checklist app.</p>
+      <h4 style="font-size:14px; color:var(--exec-blue-dark);">Core Modules</h4>
+      <div class="tag-list"><span class="tag">Incident Management</span><span class="tag">Hazard Identification</span><span class="tag">Risk Assessments</span><span class="tag">Safety Inspections</span><span class="tag">Corrective Actions</span><span class="tag">Training Records</span><span class="tag">Legal Register</span><span class="tag">Compliance Calendar</span><span class="tag">Audit Management</span><span class="tag">Executive Compliance Dashboard</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="section" id="security">
+  <div class="container grid-2" style="align-items:flex-start;">
+    <div class="reveal">
+      <div class="eyebrow">Security Services</div>
+      <h2>Visibility Across Every Site, Every Shift</h2>
+      <p>Guard scheduling, patrol reporting, and incident management — all in one place, with client-ready reporting built in.</p>
+      <h4 style="font-size:14px; color:var(--exec-blue-dark);">Operational Challenges</h4>
+      <div class="tag-list"><span class="tag">Guard Scheduling</span><span class="tag">Site Attendance</span><span class="tag">Patrol Reporting</span><span class="tag">Incident Management</span><span class="tag">Client Communication</span><span class="tag">Asset Tracking</span></div>
+      <h4 style="font-size:14px; color:var(--exec-blue-dark); margin-top:20px;">Recommended Modules</h4>
+      <div class="tag-list"><span class="tag">Staff Scheduling</span><span class="tag">Mobile Reporting</span><span class="tag">Incident Register</span><span class="tag">Client Sites</span><span class="tag">Compliance</span><span class="tag">Dashboards</span></div>
+    </div>
+    <div class="card card-pad reveal">
+      <h4 style="font-size:14px; color:var(--exec-blue-dark);">Business Benefits</h4>
+      <div class="check-list">
+        <div class="check-item"><span class="ci">✓</span> Greater visibility across operations</div>
+        <div class="check-item"><span class="ci">✓</span> Faster incident response</div>
+        <div class="check-item"><span class="ci">✓</span> Improved accountability</div>
+        <div class="check-item"><span class="ci">✓</span> Better client reporting</div>
+      </div>
+      <a href="#contact:demo" class="btn btn-primary btn-sm" style="margin-top:16px;">Request an Industry Demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLEANING & FACILITIES -->
+<section class="section section-alt" id="cleaning-facilities">
+  <div class="container grid-2" style="align-items:flex-start;">
+    <div class="card card-pad reveal" style="order:2;">
+      <h4 style="font-size:14px; color:var(--exec-blue-dark);">Business Outcomes</h4>
+      <div class="check-list">
+        <div class="check-item"><span class="ci">✓</span> Better service consistency</div>
+        <div class="check-item"><span class="ci">✓</span> Improved client communication</div>
+        <div class="check-item"><span class="ci">✓</span> Reduced paperwork</div>
+        <div class="check-item"><span class="ci">✓</span> Greater operational visibility</div>
+      </div>
+      <a href="#contact:demo" class="btn btn-primary btn-sm" style="margin-top:16px;">Request an Industry Demo</a>
+    </div>
+    <div class="reveal" style="order:1;">
+      <div class="eyebrow">Cleaning &amp; Facilities Management</div>
+      <h2>Consistent Service, Every Site, Every Time</h2>
+      <p>Job scheduling, quality inspections, and client reporting brought together so nothing depends on memory or paper checklists.</p>
+      <h4 style="font-size:14px; color:var(--exec-blue-dark);">Operational Challenges</h4>
+      <div class="tag-list"><span class="tag">Job Scheduling</span><span class="tag">Quality Inspections</span><span class="tag">Asset Management</span><span class="tag">Staff Supervision</span><span class="tag">Client Reporting</span></div>
+      <h4 style="font-size:14px; color:var(--exec-blue-dark); margin-top:20px;">Recommended Modules</h4>
+      <div class="tag-list"><span class="tag">Work Orders</span><span class="tag">Site Checklists</span><span class="tag">Cleaning Schedules</span><span class="tag">Asset Registers</span><span class="tag">Staff Rosters</span><span class="tag">Client Reports</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGINEERING & MAINTENANCE -->
+<section class="section" id="engineering">
+  <div class="container grid-2" style="align-items:flex-start;">
+    <div class="reveal">
+      <div class="eyebrow">Engineering &amp; Maintenance</div>
+      <h2>Fewer Breakdowns. Better Planning.</h2>
+      <p>Planned and reactive maintenance, equipment registers, and inspection records — coordinated with your contractors, not against them.</p>
+      <h4 style="font-size:14px; color:var(--exec-blue-dark);">Operational Challenges</h4>
+      <div class="tag-list"><span class="tag">Planned Maintenance</span><span class="tag">Reactive Maintenance</span><span class="tag">Equipment Registers</span><span class="tag">Work Orders</span><span class="tag">Contractor Coordination</span></div>
+      <h4 style="font-size:14px; color:var(--exec-blue-dark); margin-top:20px;">Recommended Modules</h4>
+      <div class="tag-list"><span class="tag">Maintenance Planner</span><span class="tag">Work Orders</span><span class="tag">Asset Register</span><span class="tag">Preventive Maintenance</span><span class="tag">Inspections</span><span class="tag">Executive Reporting</span></div>
+    </div>
+    <div class="card card-pad reveal">
+      <h4 style="font-size:14px; color:var(--exec-blue-dark);">Business Outcomes</h4>
+      <div class="check-list">
+        <div class="check-item"><span class="ci">✓</span> Reduced equipment downtime</div>
+        <div class="check-item"><span class="ci">✓</span> Better maintenance planning</div>
+        <div class="check-item"><span class="ci">✓</span> Improved asset visibility</div>
+        <div class="check-item"><span class="ci">✓</span> More efficient resource allocation</div>
+      </div>
+      <a href="#contact:demo" class="btn btn-primary btn-sm" style="margin-top:16px;">Request an Industry Demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- MORE INDUSTRIES -->
+<section class="section section-alt" id="more-industries">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">More Industries</div>
+      <h2>Also Configured For</h2>
+      <p class="lede center">The same platform architecture extends naturally to these sectors — get in touch to discuss the modules most relevant to your operation.</p>
+    </div>
+    <div class="grid-4">
+      <div class="industry-card reveal" id="manufacturing"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M4 20V10l6 4v-4l6 4V6l4-2v16"/></svg></div><h3 style="font-size:14.5px;">Manufacturing</h3><p style="font-size:12.5px;">Production tracking, quality control, and maintenance in one system.</p></div>
+      <div class="industry-card reveal" id="healthcare"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div><h3 style="font-size:14.5px;">Healthcare</h3><p style="font-size:12.5px;">Compliance, staff scheduling, and facility management.</p></div>
+      <div class="industry-card reveal" id="funeral-services"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div><h3 style="font-size:14.5px;">Funeral Services</h3><p style="font-size:12.5px;">Case management, documentation, and family-facing scheduling.</p></div>
+      <div class="industry-card reveal" id="logistics"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/></svg></div><h3 style="font-size:14.5px;">Logistics</h3><p style="font-size:12.5px;">Fleet, scheduling, and delivery visibility in one dashboard.</p></div>
+      <div class="industry-card reveal" id="professional-services"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/></svg></div><h3 style="font-size:14.5px;">Professional Services</h3><p style="font-size:12.5px;">Client management, documents, and reporting.</p></div>
+      <div class="industry-card reveal" id="property-management"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5 12 3l9 6.5V21H3z"/></svg></div><h3 style="font-size:14.5px;">Property Management</h3><p style="font-size:12.5px;">Maintenance requests, inspections, and tenant communication.</p></div>
+      <div class="industry-card reveal" id="maintenance-contractors"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 1 5.4-5.4L21 6l-3-3-3.3 3.3z"/></svg></div><h3 style="font-size:14.5px;">Maintenance Contractors</h3><p style="font-size:12.5px;">Work orders, scheduling, and job completion reporting.</p></div>
+      <div class="industry-card reveal"><div class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20"/></svg></div><h3 style="font-size:14.5px;">Don't See Your Industry?</h3><p style="font-size:12.5px;">Get in touch — the platform is built to adapt.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Talk to Us About Your Industry</h2>
+      <p>Tell us about your operation and we'll show you exactly which modules and dashboards apply.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a href="#contact:demo" class="btn btn-cyan">Request an Industry Demo</a>
+        <a href="#contact" class="btn btn-ghost-light">Book a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div>
+
+<div class="page" id="page-resources">
+
+
+<header class="page-hero section-alt">
+  <div class="container text-center">
+    <div class="breadcrumb" style="text-align:left;"><a href="#home">Home</a> / Resources</div>
+    <div class="reveal">
+      <div class="eyebrow">Knowledge Centre</div>
+      <h1 class="center" style="max-width:760px;">Insights That Help Businesses Operate Smarter</h1>
+      <p class="lede center">Practical guidance on operations, reporting, compliance, and digital transformation — written for business owners and managers, not software engineers.</p>
+      <div style="max-width:480px; margin:24px auto 0; position:relative;">
+        <input type="search" placeholder="Search articles, guides, and templates..." style="width:100%; padding:14px 18px; border-radius:100px; border:1.5px solid var(--grey-200); font-size:14px;">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CATEGORIES -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Browse by Category</div>
+      <h2>Resource Categories</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card card-pad reveal"><div class="card-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></div><h3>Business Operations</h3><p>Operational efficiency, process improvement, and workflow design.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon teal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg></div><h3>Executive Reporting</h3><p>Dashboards, KPIs, reporting structures, and management information.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon cyan"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3>Workflow Automation</h3><p>How automation improves productivity, consistency, and control.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-9-9"/></svg></div><h3>Health, Safety &amp; Compliance</h3><p>Inspections, audits, legal compliance, and corrective actions.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon teal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div><h3>Digital Transformation</h3><p>Practical advice for replacing paper-based systems.</p></div>
+      <div class="card card-pad reveal"><div class="card-icon cyan"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg></div><h3>Industry Best Practices</h3><p>Content tailored to construction, security, facilities, and more.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Latest Articles</div>
+      <h2>From the Knowledge Centre</h2>
+      <p class="lede center">New articles are added regularly. Here's a preview of what's coming.</p>
+    </div>
+    <div class="grid-4">
+      <div class="card card-pad reveal"><span class="pill pill-teal" style="margin-bottom:12px; display:inline-block;">Business Operations</span><h3 style="font-size:14.5px;">Improving Operational Efficiency</h3><p style="font-size:13px;">Practical steps to reduce wasted time and effort in daily operations.</p></div>
+      <div class="card card-pad reveal"><span class="pill pill-blue" style="margin-bottom:12px; display:inline-block;">Executive Reporting</span><h3 style="font-size:14.5px;">Building Executive Dashboards That Matter</h3><p style="font-size:13px;">What separates a dashboard people actually use from one that gets ignored.</p></div>
+      <div class="card card-pad reveal"><span class="pill pill-teal" style="margin-bottom:12px; display:inline-block;">Business Operations</span><h3 style="font-size:14.5px;">Reducing Administrative Overhead</h3><p style="font-size:13px;">Where admin time really goes, and how to claw it back.</p></div>
+      <div class="card card-pad reveal"><span class="pill pill-blue" style="margin-bottom:12px; display:inline-block;">Compliance</span><h3 style="font-size:14.5px;">Preparing for Compliance Audits</h3><p style="font-size:13px;">A practical readiness checklist for your next audit cycle.</p></div>
+      <div class="card card-pad reveal"><span class="pill pill-teal" style="margin-bottom:12px; display:inline-block;">Automation</span><h3 style="font-size:14.5px;">Workflow Automation Best Practices</h3><p style="font-size:13px;">Where to start automating first for the fastest return.</p></div>
+      <div class="card card-pad reveal"><span class="pill pill-blue" style="margin-bottom:12px; display:inline-block;">Digital Transformation</span><h3 style="font-size:14.5px;">Digital Transformation for SMEs</h3><p style="font-size:13px;">A realistic, low-disruption path away from paper and spreadsheets.</p></div>
+      <div class="card card-pad reveal"><span class="pill pill-teal" style="margin-bottom:12px; display:inline-block;">Executive Reporting</span><h3 style="font-size:14.5px;">Business Reporting Essentials</h3><p style="font-size:13px;">The handful of reports every management team actually needs.</p></div>
+      <div class="card card-pad reveal"><span class="pill pill-blue" style="margin-bottom:12px; display:inline-block;">Executive Reporting</span><h3 style="font-size:14.5px;">Operational KPIs Every Manager Should Monitor</h3><p style="font-size:13px;">The core metrics worth tracking, regardless of industry.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOADABLE RESOURCES -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Downloadable Resources</div>
+      <h2>Templates &amp; Checklists</h2>
+      <p class="lede center">Practical tools your team can use right away. New downloads are added as the Knowledge Centre grows.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card card-pad reveal" style="display:flex; align-items:center; gap:14px;">
+        <div class="card-icon blue" style="margin-bottom:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <div><h3 style="font-size:14px; margin-bottom:2px;">Business Operations Checklist</h3><span class="small muted">Coming soon</span></div>
+      </div>
+      <div class="card card-pad reveal" style="display:flex; align-items:center; gap:14px;">
+        <div class="card-icon teal" style="margin-bottom:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <div><h3 style="font-size:14px; margin-bottom:2px;">H&amp;S Inspection Template</h3><span class="small muted">Coming soon</span></div>
+      </div>
+      <div class="card card-pad reveal" style="display:flex; align-items:center; gap:14px;">
+        <div class="card-icon cyan" style="margin-bottom:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <div><h3 style="font-size:14px; margin-bottom:2px;">Operational Audit Checklist</h3><span class="small muted">Coming soon</span></div>
+      </div>
+      <div class="card card-pad reveal" style="display:flex; align-items:center; gap:14px;">
+        <div class="card-icon blue" style="margin-bottom:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <div><h3 style="font-size:14px; margin-bottom:2px;">Executive KPI Guide</h3><span class="small muted">Coming soon</span></div>
+      </div>
+      <div class="card card-pad reveal" style="display:flex; align-items:center; gap:14px;">
+        <div class="card-icon teal" style="margin-bottom:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <div><h3 style="font-size:14px; margin-bottom:2px;">Workflow Planning Template</h3><span class="small muted">Coming soon</span></div>
+      </div>
+      <div class="card card-pad reveal" style="display:flex; align-items:center; gap:14px;">
+        <div class="card-icon cyan" style="margin-bottom:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <div><h3 style="font-size:14px; margin-bottom:2px;">Digital Transformation Checklist</h3><span class="small muted">Coming soon</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt" id="faq">
+  <div class="container" style="max-width:800px;">
+    <div class="section-head reveal">
+      <div class="eyebrow">FAQ</div>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div>
+      <div class="accordion-item open">
+        <button class="accordion-q">What is Executive Operational Visibility?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">The ability for business owners and management teams to understand the health of their organisation through timely, accurate, and meaningful operational information — rather than searching through disconnected systems or paper records.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-q">How long does implementation typically take?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">This depends on scope and the number of modules involved. During your consultation, we'll give you a realistic timeline based on your specific requirements.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-q">Can the platform integrate with existing systems?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">Existing workflows are reviewed and, where appropriate, incorporated into the new operational platform.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-q">Is the solution suitable for small businesses?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">Yes. Organisations can begin with core modules and expand functionality as their business grows.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-q">How is client data protected?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">We follow modern security best practices, including secure hosting, HTTPS, and role-based access to sensitive information. See our Privacy Policy for full details.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-q">Can modules be added later?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">Yes. The platform is designed to be scalable, so new modules can be added as your operational requirements evolve.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Have a Question We Haven't Covered?</h2>
+      <p>Get in touch and we'll walk you through anything specific to your business.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a href="#contact" class="btn btn-cyan">Book a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div>
+
+<div class="page" id="page-case-studies">
+
+
+<header class="page-hero section-alt">
+  <div class="container text-center">
+    <div class="breadcrumb" style="text-align:left;"><a href="#home">Home</a> / Case Studies</div>
+    <div class="reveal">
+      <div class="eyebrow">Case Studies &amp; Success Stories</div>
+      <h1 class="center" style="max-width:760px;">How Did This Improve the Client's Business?</h1>
+      <p class="lede center">That's the question every case study here is built to answer. As projects are completed, this page will be updated with real client results. In the meantime, the examples below show the structure and depth every case study will follow.</p>
+    </div>
+  </div>
+</header>
+
+<!-- ILLUSTRATIVE CASE STUDIES -->
+<section class="section">
+  <div class="container">
+    <div class="grid-2" style="margin-bottom:40px;">
+      <div class="case-card reveal">
+        <div class="case-band"></div>
+        <div class="case-body">
+          <span class="illustrative-badge">Illustrative Example</span>
+          <h3>Mid-Sized Construction Contractor</h3>
+          <p class="small"><strong>Industry:</strong> Construction &nbsp;·&nbsp; <strong>Business Size:</strong> 40–80 staff across multiple sites</p>
+          <div class="divider"></div>
+          <h4 style="font-size:13.5px; color:var(--exec-blue-dark);">Operational Challenges</h4>
+          <div class="check-list" style="margin-bottom:16px;">
+            <div class="check-item cross-item"><span class="ci">✕</span> Paper-based site diaries and inspection sheets</div>
+            <div class="check-item cross-item"><span class="ci">✕</span> Manual, delayed reporting back to head office</div>
+            <div class="check-item cross-item"><span class="ci">✕</span> Compliance documentation scattered across sites</div>
+          </div>
+          <h4 style="font-size:13.5px; color:var(--exec-blue-dark);">Solution Implemented</h4>
+          <p class="small">Projects, Health &amp; Safety, Document Control, and Executive Dashboard modules configured for multi-site construction operations.</p>
+          <h4 style="font-size:13.5px; color:var(--exec-blue-dark);">Business Outcomes</h4>
+          <div class="tag-list"><span class="tag">Faster reporting cycles</span><span class="tag">Improved compliance</span><span class="tag">Reduced paperwork</span></div>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-band"></div>
+        <div class="case-body">
+          <span class="illustrative-badge">Illustrative Example</span>
+          <h3>Regional Facilities Management Group</h3>
+          <p class="small"><strong>Industry:</strong> Cleaning &amp; Facilities &nbsp;·&nbsp; <strong>Business Size:</strong> 100+ staff, multiple client contracts</p>
+          <div class="divider"></div>
+          <h4 style="font-size:13.5px; color:var(--exec-blue-dark);">Operational Challenges</h4>
+          <div class="check-list" style="margin-bottom:16px;">
+            <div class="check-item cross-item"><span class="ci">✕</span> Inconsistent job scheduling across contracts</div>
+            <div class="check-item cross-item"><span class="ci">✕</span> Limited visibility into quality inspections</div>
+            <div class="check-item cross-item"><span class="ci">✕</span> Manual client reporting</div>
+          </div>
+          <h4 style="font-size:13.5px; color:var(--exec-blue-dark);">Solution Implemented</h4>
+          <p class="small">Work Orders, Site Checklists, Staff Rosters, and automated Client Reports.</p>
+          <h4 style="font-size:13.5px; color:var(--exec-blue-dark);">Business Outcomes</h4>
+          <div class="tag-list"><span class="tag">Better service consistency</span><span class="tag">Improved client communication</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-pad text-center reveal" style="background:var(--grey-50);">
+      <h3>Have a Project You'd Like to See Featured Here?</h3>
+      <p>If you're an existing client and would like to share your results, we'd love to hear from you.</p>
+      <a href="#contact" class="btn btn-secondary btn-sm">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow on-dark">The Kind of Impact We Aim For</div>
+      <h2>Measurable, Not Just Marketed</h2>
+      <p class="lede center">These reflect our operational targets for every engagement — figures for individual clients will be published here once projects are completed and results are confirmed.</p>
+    </div>
+    <div class="stats-row reveal">
+      <div><div class="stat-num" data-count="1">0</div><div class="stat-label">Integrated Platform Per Client</div></div>
+      <div><div class="stat-num" data-count="5">0</div><div class="stat-label">Step Delivery Methodology</div></div>
+      <div><div class="stat-num" data-count="12" data-suffix="+">0+</div><div class="stat-label">Industries Supported</div></div>
+      <div><div class="stat-num" data-count="100" data-suffix="%">0%</div><div class="stat-label">Focus on Business Outcomes</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Become Our Next Success Story</h2>
+      <p>Book a consultation and let's talk about the operational challenges your business is facing today.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a href="#contact" class="btn btn-cyan">Book a Consultation</a>
+        <a href="#contact:demo" class="btn btn-ghost-light">Request a Live Demonstration</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div>
+
+<div class="page" id="page-contact">
+
+
+<header class="page-hero section-alt">
+  <div class="container text-center">
+    <div class="breadcrumb" style="text-align:left;"><a href="#home">Home</a> / Contact</div>
+    <div class="reveal">
+      <div class="eyebrow">Let's Talk</div>
+      <h1 class="center" style="max-width:760px;">Let's Build Better Business Operations Together</h1>
+      <p class="lede center">Every business is different. Our first step is to understand your organisation, your operational challenges, and your goals. From there, we'll recommend the most appropriate solution and demonstrate how we can help.</p>
+    </div>
+  </div>
+</header>
+
+<!-- FORM + INFO -->
+<section class="section">
+  <div class="container grid-2" style="align-items:flex-start; gap:44px;">
+
+    <div class="form-card reveal">
+      <form id="consultation-form" novalidate>
+        <h3 style="margin-bottom:6px;">Request a Consultation</h3>
+        <p class="small muted" style="margin-bottom:24px;">Fields marked * are required.</p>
+
+        <div class="form-grid">
+          <div class="form-field"><label>Full Name *</label><input type="text" name="fullName" required></div>
+          <div class="form-field"><label>Company Name *</label><input type="text" name="companyName" required></div>
+          <div class="form-field"><label>Job Title</label><input type="text" name="jobTitle"></div>
+          <div class="form-field"><label>Email Address *</label><input type="email" name="email" required></div>
+          <div class="form-field"><label>Telephone Number *</label><input type="tel" name="phone" required></div>
+          <div class="form-field"><label>Industry</label>
+            <select name="industry">
+              <option value="">Select your industry...</option>
+              <option>Construction</option><option>Health, Safety &amp; Compliance</option><option>Security Services</option>
+              <option>Cleaning &amp; Facilities Management</option><option>Engineering &amp; Maintenance</option>
+              <option>Manufacturing</option><option>Healthcare</option><option>Funeral Services</option>
+              <option>Logistics</option><option>Professional Services</option><option>Property Management</option>
+              <option>Maintenance Contractors</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-field"><label>Number of Employees</label>
+            <select name="employees">
+              <option value="">Select a range...</option>
+              <option>1–10</option><option>11–50</option><option>51–200</option><option>201–500</option><option>500+</option>
+            </select>
+          </div>
+          <div class="form-field"><label>Business Location</label><input type="text" name="location" placeholder="City / region"></div>
+          <div class="form-field"><label>Current Operational Systems (optional)</label><input type="text" name="currentSystems" placeholder="e.g. spreadsheets, paper records"></div>
+        </div>
+
+        <div class="form-field full">
+          <label>Areas of Interest</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-row"><input type="checkbox" name="interest" value="Business Operations Platform"> Business Operations Platform</label>
+            <label class="checkbox-row"><input type="checkbox" name="interest" value="Executive Dashboards"> Executive Dashboards</label>
+            <label class="checkbox-row"><input type="checkbox" name="interest" value="Health, Safety & Compliance"> Health, Safety &amp; Compliance</label>
+            <label class="checkbox-row"><input type="checkbox" name="interest" value="Workflow Automation"> Workflow Automation</label>
+            <label class="checkbox-row"><input type="checkbox" name="interest" value="Document Management"> Document Management</label>
+            <label class="checkbox-row"><input type="checkbox" name="interest" value="Industry-Specific Solutions"> Industry-Specific Solutions</label>
+            <label class="checkbox-row"><input type="checkbox" name="interest" value="Operational Review"> Operational Review</label>
+            <label class="checkbox-row"><input type="checkbox" name="interest" value="Other"> Other</label>
+          </div>
+        </div>
+
+        <div class="form-field full">
+          <label>Tell Us About Your Operational Challenges</label>
+          <textarea name="challenges" placeholder="What's not working today? What would you like to improve?"></textarea>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field"><label>Preferred Contact Method</label>
+            <select name="contactMethod"><option>Telephone</option><option>Email</option><option>Online Meeting</option></select>
+          </div>
+          <div class="form-field"><label>Preferred Contact Time</label>
+            <select name="contactTime"><option>Morning</option><option>Afternoon</option><option>Specific Time — please specify in message</option></select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top:8px;">Submit Consultation Request</button>
+        <div class="privacy-note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Your information is kept confidential and is only used to prepare for your consultation.</div>
+      </form>
+
+      <div class="form-success" id="form-success">
+        <div class="fs-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Thank You — Your Enquiry Has Been Received</h3>
+        <p>We'll be in touch shortly to arrange your consultation. In the meantime, feel free to explore our <a href="#solutions" style="color:var(--exec-blue); font-weight:600;">Solutions</a> or <a href="#case-studies" style="color:var(--exec-blue); font-weight:600;">Case Studies</a>.</p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <h3 style="margin-bottom:18px;">What Happens Next</h3>
+      <div style="display:flex; flex-direction:column; gap:16px; margin-bottom:32px;">
+        <div class="info-card"><div class="ic">1</div><div><strong>We review your enquiry.</strong><p class="small mb-0">Usually within one business day.</p></div></div>
+        <div class="info-card"><div class="ic">2</div><div><strong>We contact you to arrange a consultation.</strong><p class="small mb-0">At a time that suits you.</p></div></div>
+        <div class="info-card"><div class="ic">3</div><div><strong>We learn about your business.</strong><p class="small mb-0">Your operations, challenges, and goals.</p></div></div>
+        <div class="info-card"><div class="ic">4</div><div><strong>We demonstrate relevant capabilities.</strong><p class="small mb-0">Only what's relevant to you.</p></div></div>
+        <div class="info-card"><div class="ic">5</div><div><strong>We recommend a tailored solution.</strong><p class="small mb-0">Practical, and built around your business.</p></div></div>
+      </div>
+
+      <h3 style="margin-bottom:14px;">Contact Information</h3>
+      <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:28px;">
+        <div class="info-card"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><strong>Business Phone</strong><p class="small mb-0">+27 00 000 0000 <span class="muted">(placeholder — update before launch)</span></p></div></div>
+        <div class="info-card"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg></div><div><strong>Business Email</strong><p class="small mb-0">hello@smartdesignoperations.com <span class="muted">(placeholder)</span></p></div></div>
+        <div class="info-card"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><strong>Service Regions</strong><p class="small mb-0">Nationwide — consultations available by appointment.</p></div></div>
+        <div class="info-card"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div><strong>Business Hours</strong><p class="small mb-0">Monday – Friday, 08:00 – 17:00</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt">
+  <div class="container" style="max-width:800px;">
+    <div class="section-head reveal">
+      <div class="eyebrow">FAQ</div>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div>
+      <div class="accordion-item open">
+        <button class="accordion-q">How long does the consultation take?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">Typically 30–45 minutes, depending on the complexity of your operational requirements.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-q">Is the consultation free?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">Yes, the initial consultation is free of charge and carries no obligation.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-q">Can demonstrations be conducted online?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">Yes. Most demonstrations are conducted via online meeting for convenience, though in-person meetings can be arranged where appropriate.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-q">How quickly can implementation begin?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">This depends on the scope of your requirements. We'll give you a realistic timeline once we understand your operational needs.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-q">Do you provide ongoing support after implementation?<span class="plus">+</span></button>
+        <div class="accordion-a"><div class="accordion-a-inner">Yes. We provide continuous support, guidance, and platform improvements after go-live.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div>
+
+<div class="page" id="page-privacy">
+
+<header class="page-hero section-alt">
+  <div class="container">
+    <div class="breadcrumb"><a href="#home">Home</a> / Privacy Policy</div>
+    <h1>Privacy Policy</h1>
+    <p class="lede">Last updated: <span id="today-privacy"></span></p>
+  </div>
+</header>
+<section class="section">
+  <div class="container" style="max-width:760px;">
+    <p><em>This is a placeholder Privacy Policy provided as part of the Phase 1 website build. It should be reviewed and finalised by a qualified legal advisor before the site goes live, particularly to ensure compliance with the Protection of Personal Information Act (POPIA) and any other applicable data protection regulations.</em></p>
+
+    <h3>Information We Collect</h3>
+    <p>When you submit a consultation request or contact form on this website, we collect the information you provide, which may include your name, company name, job title, email address, telephone number, industry, and details of your operational challenges.</p>
+
+    <h3>How We Use Your Information</h3>
+    <p>Information submitted through this website is used solely to respond to your enquiry, prepare for a consultation, and — where you have agreed — to share relevant updates about our solutions.</p>
+
+    <h3>Data Storage &amp; Security</h3>
+    <p>We take reasonable technical and organisational measures to protect the information you share with us. As this platform grows, enquiry data will be stored in a secure, database-backed system with role-based access, audit logging, and backup procedures, rather than relying solely on this website.</p>
+
+    <h3>Your Rights</h3>
+    <p>You may request access to, correction of, or deletion of your personal information at any time by contacting us directly.</p>
+
+    <h3>Cookies</h3>
+    <p>This website does not currently use tracking cookies. Should analytics or marketing cookies be introduced in future, this policy will be updated accordingly, and a cookie consent notice will be added.</p>
+
+    <h3>Contact Us</h3>
+    <p>If you have questions about this Privacy Policy, please contact us at hello@smartdesignoperations.com.</p>
+  </div>
+</section>
+
+</div>
+
+<div class="page" id="page-terms">
+
+<header class="page-hero section-alt">
+  <div class="container">
+    <div class="breadcrumb"><a href="#home">Home</a> / Terms &amp; Conditions</div>
+    <h1>Terms &amp; Conditions</h1>
+    <p class="lede">Last updated: <span id="today-terms"></span></p>
+  </div>
+</header>
+<section class="section">
+  <div class="container" style="max-width:760px;">
+    <p><em>This is a placeholder Terms &amp; Conditions page provided as part of the Phase 1 website build. It should be reviewed and finalised by a qualified legal advisor before the site goes live.</em></p>
+
+    <h3>Use of This Website</h3>
+    <p>This website is provided for informational purposes to introduce Smart Design Business Operations, its solutions, and its consultation services. By using this website, you agree to use it lawfully and not to misuse any content, forms, or functionality provided.</p>
+
+    <h3>No Warranty</h3>
+    <p>While we take care to keep the information on this website accurate and current, we make no warranties about the completeness or accuracy of the content. Specific commitments regarding solutions, pricing, and implementation timelines will be confirmed directly with clients during the consultation process.</p>
+
+    <h3>Intellectual Property</h3>
+    <p>All content on this website, including text, graphics, and platform dashboard visuals, is the property of Smart Design Business Operations unless otherwise stated, and may not be reproduced without permission.</p>
+
+    <h3>Limitation of Liability</h3>
+    <p>Smart Design Business Operations shall not be liable for any indirect or consequential loss arising from the use of this website.</p>
+
+    <h3>Changes to These Terms</h3>
+    <p>These terms may be updated from time to time. Continued use of the website constitutes acceptance of the current terms.</p>
+
+    <h3>Contact Us</h3>
+    <p>If you have questions about these Terms &amp; Conditions, please contact us at hello@smartdesignoperations.com.</p>
+  </div>
+</section>
+
+</div>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand"><span class="mark">SD</span><span>Smart Design<br>Business Operations</span></div>
+        <p>Helping businesses operate smarter through Executive Operational Visibility — premium business operations platforms for organisations that value efficiency and long-term partnership.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#about" data-nav-link>About Us</a>
+        <a href="#solutions" data-nav-link>Solutions</a>
+        <a href="#industries" data-nav-link>Industries</a>
+        <a href="#case-studies" data-nav-link>Case Studies</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="#resources" data-nav-link>Knowledge Centre</a>
+        <a href="#faq" data-nav-link>FAQs</a>
+        <a href="#contact" data-nav-link>Book a Consultation</a>
+        <a href="#contact:demo" data-nav-link>Request a Demo</a>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <a href="mailto:hello@smartdesignoperations.com">hello@smartdesignoperations.com</a>
+        <a href="tel:+27000000000">+27 00 000 0000</a>
+        <a href="#contact" data-nav-link>Contact Page →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> Smart Design Business Operations. All rights reserved. &nbsp;·&nbsp; <a href="#privacy" data-nav-link style="color:inherit;">Privacy Policy</a> &nbsp;·&nbsp; <a href="#terms" data-nav-link style="color:inherit;">Terms &amp; Conditions</a></div>
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn" onclick="return false;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="color:#fff;"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.65V23h-4V8z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ======================================================================
+   SMART DESIGN BUSINESS OPERATIONS — FLAGSHIP WEBSITE
+   Shared interactivity
+====================================================================== */
+
+// Mobile nav toggle
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', function () {
+      links.classList.toggle('open');
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  }
+
+  // Accordion (FAQ)
+  document.querySelectorAll('.accordion-item').forEach(item => {
+    const q = item.querySelector('.accordion-q');
+    if (!q) return;
+    q.addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      item.parentElement.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Tabs
+  document.querySelectorAll('.tabs-bar').forEach(bar => {
+    const target = bar.getAttribute('data-tabs-target');
+    const panelGroup = document.querySelector(target);
+    if (!panelGroup) return;
+    bar.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        bar.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const key = btn.getAttribute('data-tab');
+        panelGroup.querySelectorAll('.tab-panel').forEach(p => {
+          p.classList.toggle('active', p.getAttribute('data-panel') === key);
+        });
+      });
+    });
+  });
+
+  // Animated counters
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(c => obs.observe(c));
+  }
+  function animateCount(el) {
+    const target = parseFloat(el.getAttribute('data-count'));
+    const suffix = el.getAttribute('data-suffix') || '';
+    const duration = 1100;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const val = target * eased;
+      el.textContent = (target % 1 === 0 ? Math.round(val) : val.toFixed(1)) + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity .5s ease, transform .5s ease';
+      revealObs.observe(el);
+    });
+  }
+
+  // Consultation form (Phase 1 — client-side only, see README for CRM/email integration notes)
+  const form = document.getElementById('consultation-form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        if (!field.value.trim()) { valid = false; field.style.borderColor = '#B3453B'; }
+        else { field.style.borderColor = ''; }
+      });
+      if (!valid) return;
+
+      form.style.display = 'none';
+      const success = document.getElementById('form-success');
+      if (success) success.classList.add('show');
+    });
+  }
+});
+
+
+/* ---------------- SINGLE-FILE ROUTER ---------------- */
+const SDBO_PAGES = ['home','about','solutions','industries','resources','case-studies','contact','privacy','terms'];
+const SDBO_ANCHOR_MAP = {
+  'construction':'industries','engineering':'industries','manufacturing':'industries','security':'industries',
+  'cleaning-facilities':'industries','health-safety-compliance':'industries','healthcare':'industries',
+  'funeral-services':'industries','logistics':'industries','professional-services':'industries',
+  'property-management':'industries','maintenance-contractors':'industries','more-industries':'industries',
+  'operations-platform':'solutions','dashboards':'solutions','workflow-automation':'solutions','document-management':'solutions',
+  'faq':'resources'
+};
+
+function sdboShowPage(page){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const el = document.getElementById('page-' + page);
+  if (el) el.classList.add('active');
+  document.querySelectorAll('[data-nav-link]').forEach(a => a.classList.remove('active'));
+  document.querySelectorAll('[data-page="' + page + '"]').forEach(a => a.classList.add('active'));
+}
+
+function sdboRoute(){
+  let raw = (window.location.hash || '#home').slice(1);
+  let demo = false;
+  if (raw.endsWith(':demo')) { demo = true; raw = raw.replace(':demo',''); }
+  if (!raw) raw = 'home';
+
+  let page = SDBO_PAGES.includes(raw) ? raw : (SDBO_ANCHOR_MAP[raw] || 'home');
+  sdboShowPage(page);
+
+  if (demo && page === 'contact') {
+    const cb = document.querySelector('input[value="Executive Dashboards"]');
+    if (cb) cb.checked = true;
+  }
+
+  if (SDBO_ANCHOR_MAP[raw]) {
+    setTimeout(() => {
+      const el = document.getElementById(raw);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  } else {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  const links = document.querySelector('.nav-links');
+  if (links) links.classList.remove('open');
+}
+
+window.addEventListener('hashchange', sdboRoute);
+window.addEventListener('DOMContentLoaded', function(){
+  sdboRoute();
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  const todayFmt = new Date().toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'});
+  const tp = document.getElementById('today-privacy'); if (tp) tp.textContent = todayFmt;
+  const tt = document.getElementById('today-terms'); if (tt) tt.textContent = todayFmt;
+});
+
+</script>
+</body>
+</html>
