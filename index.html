@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Smart Design Business Operations | Executive Operational Visibility</title>
-<meta name="description" content="Smart Design Business Operations designs premium business operations platforms that simplify workflows, improve reporting, strengthen compliance, and give leadership teams complete operational visibility.">
+<meta name="description" content="Smart Design Business Operations designs and builds premium business dashboards and professional websites that simplify workflows, improve reporting, and give leadership teams complete operational visibility.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -113,19 +113,23 @@ button{ font-family:inherit; }
 
 /* ---------- NAVIGATION ---------- */
 .site-nav{
-  position:sticky; top:0; z-index:200; background:rgba(255,255,255,0.92);
+  position:sticky; top:0; z-index:200; background:rgba(255,255,255,0.95);
   backdrop-filter:saturate(180%) blur(14px);
   border-bottom:1px solid var(--grey-100);
-  height:var(--nav-h);
+  min-height:var(--nav-h);
 }
-.nav-inner{ max-width:var(--container); margin:0 auto; padding:0 28px; height:100%; display:flex; align-items:center; justify-content:space-between; }
-.brand{ display:flex; align-items:center; gap:11px; font-weight:800; color:var(--exec-blue-dark); font-size:16.5px; font-family:'Manrope',sans-serif; }
+.nav-inner{ max-width:var(--container); margin:0 auto; padding:13px 28px; min-height:var(--nav-h); display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:nowrap; }
+.brand{ display:flex; align-items:center; gap:11px; font-weight:800; color:var(--exec-blue-dark); font-size:15px; font-family:'Manrope',sans-serif; line-height:1.25; white-space:nowrap; flex-shrink:1; min-width:0; }
 .brand .mark{
   width:38px; height:38px; border-radius:10px; flex-shrink:0;
   background:linear-gradient(135deg, var(--teal), var(--exec-blue));
   display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:14px;
 }
-.brand .name-sub{ display:block; font-size:10.5px; font-weight:600; color:var(--grey-400); letter-spacing:0.06em; text-transform:uppercase; }
+.brand > span:not(.mark){ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.brand .name-sub{ display:none; }
+@media (min-width:1080px){
+  .brand{ font-size:16.5px; }
+}
 .nav-links{ display:flex; align-items:center; gap:30px; }
 .nav-links a{ font-size:14px; font-weight:600; color:var(--grey-800); padding:8px 2px; border-bottom:2px solid transparent; transition:color .15s, border-color .15s; }
 .nav-links a:hover, .nav-links a.active{ color:var(--exec-blue); border-bottom-color:var(--teal); }
@@ -158,6 +162,24 @@ button{ font-family:inherit; }
 .hero-value .vi{ width:38px; height:38px; border-radius:9px; background:var(--exec-blue-light); color:var(--exec-blue); display:flex; align-items:center; justify-content:center; margin-bottom:12px; }
 .hero-value h4{ font-size:14px; margin:0 0 4px 0; color:var(--exec-blue-dark); font-family:'Manrope',sans-serif; font-weight:800; }
 .hero-value p{ font-size:12.5px; margin:0; color:var(--grey-600); }
+
+/* ---------- HERO SERVICES CALLOUT ---------- */
+.hero-services{ margin-bottom:26px; }
+.hero-services-label{
+  display:block; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.09em;
+  color:var(--grey-400); margin-bottom:12px;
+}
+.hero-services-row{ display:flex; gap:14px; flex-wrap:wrap; }
+.hero-service-badge{
+  display:inline-flex; align-items:center; gap:10px; padding:13px 20px; border-radius:14px;
+  font-weight:800; font-size:14px; font-family:'Manrope',sans-serif; box-shadow:var(--shadow-sm);
+  border:1.5px solid transparent;
+}
+.hero-service-badge .hsb-icon{ width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.hero-service-badge.site-badge{ background:var(--cyan-light); color:var(--exec-blue-dark); border-color:rgba(23,166,199,0.25); }
+.hero-service-badge.site-badge .hsb-icon{ background:var(--cyan); color:#fff; }
+.hero-service-badge.dash-badge{ background:var(--teal-light); color:var(--exec-blue-dark); border-color:rgba(14,124,123,0.25); }
+.hero-service-badge.dash-badge .hsb-icon{ background:var(--teal); color:#fff; }
 
 /* ---------- DASHBOARD MOCKUP GRAPHIC ---------- */
 .dash-mock{
@@ -349,7 +371,7 @@ button{ font-family:inherit; }
 
 <nav class="site-nav">
   <div class="nav-inner">
-    <a href="#home" class="brand" data-nav-link><span class="mark">SD</span><span>Smart Design Business Operations<span class="name-sub">Executive Operational Visibility</span></span></a>
+    <a href="#home" class="brand" data-nav-link><span class="mark">SD</span><span>Smart Design Business Operations</span></a>
     <div class="nav-links">
       <a href="#home" data-nav-link data-page="home">Home</a>
       <a href="#about" data-nav-link data-page="about">About</a>
@@ -409,6 +431,19 @@ button{ font-family:inherit; }
     </div>
 
     <div class="hero-visual reveal">
+      <div class="hero-services">
+        <span class="hero-services-label">We Design &amp; Build</span>
+        <div class="hero-services-row">
+          <div class="hero-service-badge site-badge">
+            <span class="hsb-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+            Professional Websites
+          </div>
+          <div class="hero-service-badge dash-badge">
+            <span class="hsb-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg></span>
+            Business Dashboards
+          </div>
+        </div>
+      </div>
       <div class="dash-mock">
         <div class="dash-mock-top">
           <span class="dash-mock-title">EXECUTIVE OVERVIEW</span>
