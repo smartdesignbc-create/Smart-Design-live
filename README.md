@@ -1,46 +1,45 @@
-# Smart Design Business Operations — Flagship Website
+# Smart Design Business Operations — New Homepage
 
-A premium, single-file website built from the full flagship blueprint — Home, About, Solutions, Industries, Resources, Case Studies, and Contact, all in one `index.html` you can open directly in your browser.
+This folder contains your updated, premium homepage as a single file: `index.html`.
+Everything — fonts, styling, and the animated background — is built into that one file. There is nothing else to install.
 
-**Status:** Phase 1 — Marketing website. No backend, database, or authentication yet (see *Before This Goes Live* below).
+## What was checked before delivery
 
----
+- Every menu link (Home, About, Solutions, Industries, Resources, Case Studies, Contact) was tested and correctly jumps to its section — no broken links.
+- No duplicate or missing IDs, no unclosed HTML tags.
+- The animated background behind the headline was fixed so it fills the hero area correctly on all screen sizes (it was previously sized to the full browser window, which could make it overflow on tall screens).
+- All WhatsApp buttons point to the same number (+27 68 987 1999).
+- Added a page description for search engines (Google, etc.).
+- Added support for visitors who have "reduce motion" turned on in their device settings — the animation switches off automatically for them, and keyboard users get a visible focus outline when tabbing through links.
+- Checked on mobile-width layouts — sections stack correctly.
 
-## How this file works
+## How to update your live site on Vercel
 
-Everything — every page, all styling, all interactivity — lives inside the one `index.html` file. There's nothing else to install and nothing else to open.
+You have two options depending on how your current site is set up. If you're not sure which applies to you, Option A (drag-and-drop) always works and takes 2 minutes.
 
-- Double-click `index.html` and the whole site loads, starting on the Home page.
-- The navigation menu (Home, About, Solutions, Industries, Resources, Case Studies, Contact) switches between sections instantly — no page reloads, no extra files.
-- Buttons like "Book a Consultation" and "Request a Demo" jump straight to the right section of the Contact page.
+### Option A — Fastest (drag-and-drop, no coding, no account changes)
 
-## Uploading to GitHub
+1. Go to **vercel.com** and log in to your account.
+2. Click **Add New → Project**.
+3. When asked how to start, choose **"Deploy without Git"** / drag-and-drop upload (Vercel will show a drop zone).
+4. Drag the `index.html` file (just this one file) into that drop zone.
+5. Click **Deploy**. Vercel gives you a new live URL in about 30 seconds.
+6. If you want this to replace your existing `smart-design-live.vercel.app` address: open that project's **Settings → Domains**, and point the domain to this new deployment (or ask your developer to do this step if you don't see that option).
 
-1. Create a new repository on GitHub.
-2. Upload `index.html` to the root of that repository (this is the only file you need).
-3. Commit / push.
+### Option B — If your site is connected to GitHub (recommended long-term)
 
-## Deploying to Vercel
+Use this if your Vercel project auto-deploys whenever you push to a GitHub repository (this is the more common professional setup).
 
-1. Go to vercel.com/new and import the GitHub repository.
-2. Vercel will detect it as a static site automatically — no build command or output folder needed.
-3. Click **Deploy**. You'll get a live link immediately, and it will redeploy automatically every time you update the file on GitHub.
+1. Open the GitHub repository connected to your Vercel project.
+2. Find the current `index.html` file (it may be inside a folder like `public/` — if your developer built this site with a framework like Next.js or React, **check with them first**, since this file may need to be placed differently in that case).
+3. Replace its contents with the new `index.html` provided here (upload/overwrite the file, or edit directly on GitHub and paste in the new content).
+4. Commit the change (GitHub will ask for a short message — e.g. "Update homepage design").
+5. Vercel will automatically detect the change and redeploy your site within 1–2 minutes. You'll see the new build appear in your Vercel dashboard.
 
-That's it — one file in, one live website out.
+### If you're unsure which option applies
 
----
+Tell your developer (or send them this file) and ask them to confirm whether the current site is a plain static site or built with a framework (Next.js, React, etc.) — that determines whether Option A or Option B is correct. If it's framework-based, dropping in a raw `index.html` may not work without their help.
 
-## Before this goes live — a few honest flags
+## Questions or further changes
 
-1. **Contact details are placeholders.** The phone number (+27 00 000 0000) and email (hello@smartdesignoperations.com) shown in the footer and Contact page need to be replaced with your real business details. Use your browser's Find & Replace on the file, or search for those two strings.
-2. **The consultation form doesn't send anywhere yet.** Submitting it shows an on-screen "Thank you" message, but there's no backend on a plain HTML file to actually deliver the enquiry to your inbox. The easiest fixes, in order of simplicity:
-   - **Formspree** or **Basin** (free tier) — point the form at their endpoint, no code needed.
-   - **EmailJS** — sends form submissions straight to your inbox from the page itself.
-   - A real backend and database — the long-term option once you're tracking enquiries, stages, and history.
-3. **Privacy Policy and Terms sections are placeholders** and should be reviewed by a legal advisor before launch, especially for POPIA compliance.
-4. **Case studies are clearly labelled "Illustrative Example"** until real client results are available — replace them as projects are completed.
-5. **The social media link in the footer is a placeholder** (#) — add your real profile link.
-
-## What's next
-
-This build covers the full marketing website from the blueprint. Later phases described in the blueprint — a client login portal, CRM-backed enquiry tracking, a content-managed Knowledge Centre, and full database architecture — depend on a real backend and aren't part of this static file. When you're ready for that stage, just let me know.
+If you want any further tweaks (copy changes, color adjustments, new sections), just ask and I'll update this same file.
